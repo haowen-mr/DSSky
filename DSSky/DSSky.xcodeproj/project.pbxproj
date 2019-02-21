@@ -173,9 +173,7 @@
 		31D4E249221E945A00586909 /* Expand */ = {
 			isa = PBXGroup;
 			children = (
-				31D4E251221E962D00586909 /* Library */,
 				31D4E250221E962000586909 /* Tools */,
-				31D4E24F221E961400586909 /* Resources */,
 				31D4E24E221E960800586909 /* Extensions */,
 				31D4E24A221E949400586909 /* Config */,
 			);
@@ -209,26 +207,12 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		31D4E24F221E961400586909 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		31D4E250221E962000586909 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
 				31D4E258221E97A600586909 /* Net */,
 			);
 			path = Tools;
-			sourceTree = "<group>";
-		};
-		31D4E251221E962D00586909 /* Library */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Library;
 			sourceTree = "<group>";
 		};
 		31D4E258221E97A600586909 /* Net */ = {
