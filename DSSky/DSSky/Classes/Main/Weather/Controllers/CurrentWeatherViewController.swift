@@ -14,6 +14,12 @@ class CurrentWeatherViewController: WeatherBaseViewController {
     
     
     // MARK: Private
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var weatherIV: UIImageView!
+    @IBOutlet weak var humidityLabel: UILabel!
+    @IBOutlet weak var summaryLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     
     // MARK: - LifeCycle
@@ -25,6 +31,14 @@ class CurrentWeatherViewController: WeatherBaseViewController {
     
     
     // MARK: - Action
+    @IBAction func locationBtnClick() {
+        print(#file, #line)
+    }
+    
+    @IBAction func settingsBtnClick() {
+        
+    }
+    
     
 }
 

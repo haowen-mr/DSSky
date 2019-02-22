@@ -12,6 +12,9 @@ class WeatherBaseViewController: UIViewController {
     // MARK: - Property
     // MARK: Public
     
+    @IBOutlet weak var weatherContailerView: UIView!
+    @IBOutlet weak var loadingFailedLabel: UILabel!
+    @IBOutlet weak var activityIndictorView: UIActivityIndicatorView!
     
     // MARK: Private
     

@@ -14,6 +14,7 @@ class WeekWeatherViewController: WeatherBaseViewController {
     
     
     // MARK: Private
+    @IBOutlet weak var tableView: UITableView!
     
     
     // MARK: - LifeCycle
@@ -32,5 +33,21 @@ class WeekWeatherViewController: WeatherBaseViewController {
 private extension WeekWeatherViewController {
     func setupUI() {
         
+    }
+}
+
+extension WeekWeatherViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(WeekWeatherTableViewCell.self, for: indexPath)
+        
+        return cell
     }
 }

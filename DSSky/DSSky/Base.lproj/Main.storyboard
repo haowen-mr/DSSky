@@ -17,12 +17,52 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tHd-il-Uye">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="262"/>
+                                <connections>
+                                    <segue destination="55J-M0-2pD" kind="embed" id="U1c-Rd-Giy"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VjR-w4-xxt">
+                                <rect key="frame" x="0.0" y="274" width="375" height="393"/>
+                                <connections>
+                                    <segue destination="bQU-HL-ERP" kind="embed" id="iTe-4Q-UG9"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="tHd-il-Uye" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="8gO-CU-bP2"/>
+                            <constraint firstItem="VjR-w4-xxt" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="JVr-Y8-6fn"/>
+                            <constraint firstItem="VjR-w4-xxt" firstAttribute="top" secondItem="tHd-il-Uye" secondAttribute="bottom" constant="12" id="T6T-Ge-QEi"/>
+                            <constraint firstItem="tHd-il-Uye" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UbV-T2-N0h"/>
+                            <constraint firstItem="tHd-il-Uye" firstAttribute="height" secondItem="VjR-w4-xxt" secondAttribute="height" multiplier="2:3" id="ZSa-Vi-6pe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tHd-il-Uye" secondAttribute="trailing" id="aiR-vT-3VT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VjR-w4-xxt" secondAttribute="trailing" id="jge-lk-PaY"/>
+                            <constraint firstItem="VjR-w4-xxt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lmY-tx-o0r"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--CurrentWeatherViewController-->
+        <scene sceneID="Mim-4f-AhG">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CurrentWeatherViewController" id="55J-M0-2pD" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LsZ-sg-j5b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="626" y="-107"/>
+        </scene>
+        <!--WeekWeatherViewController-->
+        <scene sceneID="3Lo-qh-DgS">
+            <objects>
+                <viewControllerPlaceholder storyboardName="WeekWeatherViewController" id="bQU-HL-ERP" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aLQ-jA-NV0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="617" y="146"/>
         </scene>
     </scenes>
 </document>
