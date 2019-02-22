@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AMapLocationKit
 
 class WeatherViewController: UIViewController {
     // MARK: - Property
@@ -14,22 +15,37 @@ class WeatherViewController: UIViewController {
     
     
     // MARK: Private
-    
+    /// 懒加载地址
+//    private lazy var locationMalager: CLLocation = {
+//        <#statements#>
+//        return <#value#>
+//    }()
+//    
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
+        kNotiCenter.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
     
+    deinit {
+        kNotiCenter.removeObserver(self)
+    }
     
     // MARK: - Action
-    
+    @objc private func appDidBecomeActive() {
+        requestLocation()
+    }
 }
 
 // MARK: - Private Method
 private extension WeatherViewController {
+    func requestLocation() {
+        
+    }
+    
     func setupUI() {
         
     }
