@@ -29,7 +29,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eIN-Q4-gDo">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eIN-Q4-gDo" customClass="CurrentWeatherView" customModule="DSSky" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s0g-Up-teQ">
@@ -115,6 +115,14 @@
                                     <constraint firstItem="pKN-Zz-x1u" firstAttribute="top" secondItem="eIN-Q4-gDo" secondAttribute="top" constant="8" id="xew-qX-UQu"/>
                                     <constraint firstItem="KNj-PD-T6z" firstAttribute="centerX" secondItem="9S9-DV-Cmy" secondAttribute="centerX" id="yWb-gN-MT0"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="dateLabel" destination="9S9-DV-Cmy" id="63a-4A-CBB"/>
+                                    <outlet property="humidityLabel" destination="PFY-IE-dVM" id="Jpe-jB-dK7"/>
+                                    <outlet property="locationLabel" destination="h6d-Qs-7CM" id="XHi-p7-mqn"/>
+                                    <outlet property="summaryLabel" destination="KNj-PD-T6z" id="wXS-N6-yve"/>
+                                    <outlet property="temperatureLabel" destination="N0G-ck-W2c" id="Px2-et-mkI"/>
+                                    <outlet property="weatherIV" destination="u8b-JI-WtN" id="f0T-Yl-Yvd"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -128,14 +136,8 @@
                     </view>
                     <connections>
                         <outlet property="activityIndictorView" destination="LlI-Iq-4FD" id="9kC-Nt-hQO"/>
-                        <outlet property="dateLabel" destination="9S9-DV-Cmy" id="Lzc-P9-wp9"/>
-                        <outlet property="humidityLabel" destination="PFY-IE-dVM" id="z7n-hX-H01"/>
-                        <outlet property="loadingFailedLabel" destination="F7c-jf-iCO" id="kfw-A2-5fv"/>
-                        <outlet property="locationLabel" destination="h6d-Qs-7CM" id="m7h-VF-pq8"/>
-                        <outlet property="summaryLabel" destination="KNj-PD-T6z" id="ixI-Hi-ech"/>
-                        <outlet property="temperatureLabel" destination="N0G-ck-W2c" id="4tB-gp-04J"/>
-                        <outlet property="weatherContailerView" destination="eIN-Q4-gDo" id="YpZ-8F-9z7"/>
-                        <outlet property="weatherIV" destination="u8b-JI-WtN" id="hTc-Nz-nLr"/>
+                        <outlet property="loadingFailedLabel" destination="F7c-jf-iCO" id="zhx-cp-Ic3"/>
+                        <outlet property="weatherContailerView" destination="eIN-Q4-gDo" id="si4-JJ-QGe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9P5-jY-R1g" userLabel="First Responder" sceneMemberID="firstResponder"/>

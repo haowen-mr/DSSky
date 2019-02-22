@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct CurrentWeatherViewModel {
+struct CurrentWeatherViewModel: CurrentWeatherProtocol {
     var location: LocationModel! {
         didSet {
             isLocationReady = location != nil

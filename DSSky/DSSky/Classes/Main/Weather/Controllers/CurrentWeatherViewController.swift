@@ -20,12 +20,6 @@ class CurrentWeatherViewController: WeatherBaseViewController {
     }
     
     // MARK: Private
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var temperatureLabel: UILabel!
-    @IBOutlet weak var weatherIV: UIImageView!
-    @IBOutlet weak var humidityLabel: UILabel!
-    @IBOutlet weak var summaryLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
     
     
     // MARK: - LifeCycle
@@ -38,11 +32,11 @@ class CurrentWeatherViewController: WeatherBaseViewController {
     
     // MARK: - Action
     @IBAction func locationBtnClick() {
-        print(#file, #line)
+        QLPlusLine()
     }
     
     @IBAction func settingsBtnClick() {
-        
+        QLPlusLine()
     }
     
     
@@ -56,12 +50,7 @@ private extension CurrentWeatherViewController {
         if let model = viewModel, model.isUpdateReady {
             weatherContailerView.isHidden = false
             
-            locationLabel.text = model.city
-            temperatureLabel.text = model.temperature
-            weatherIV.image = model.weatherIcon
-            humidityLabel.text = model.humidity
-            summaryLabel.text = model.summary
-            dateLabel.text = model.date
+            (weatherContailerView as! CurrentWeatherView).showData(model)
         } else {
             loadingFailedLabel.isHidden = false
             loadingFailedLabel.text = "获取天气数据失败~"
