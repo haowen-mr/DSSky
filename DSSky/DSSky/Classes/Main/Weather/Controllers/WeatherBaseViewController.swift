@@ -34,7 +34,10 @@ class WeatherBaseViewController: UIViewController {
 // MARK: - Private Method
 private extension WeatherBaseViewController {
     func setupUI() {
+        weatherContailerView.isHidden = true
+        loadingFailedLabel.isHidden = true
         
+        activityIndictorView.startAnimating()
     }
 }
 

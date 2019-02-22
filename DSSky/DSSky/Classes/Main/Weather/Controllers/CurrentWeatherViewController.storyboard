@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="LlI-Iq-4FD">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="LlI-Iq-4FD">
                                 <rect key="frame" x="177" y="323" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
@@ -122,7 +122,7 @@
                             <constraint firstItem="eIN-Q4-gDo" firstAttribute="trailing" secondItem="KpG-0d-hVN" secondAttribute="trailing" id="M2K-7X-cLi"/>
                             <constraint firstItem="eIN-Q4-gDo" firstAttribute="bottom" secondItem="KpG-0d-hVN" secondAttribute="bottom" id="NNN-Py-agY"/>
                             <constraint firstItem="eIN-Q4-gDo" firstAttribute="leading" secondItem="KpG-0d-hVN" secondAttribute="leading" id="QLj-QY-T9c"/>
-                            <constraint firstItem="eIN-Q4-gDo" firstAttribute="top" secondItem="RPv-FT-pA1" secondAttribute="top" id="ulZ-gN-rSM"/>
+                            <constraint firstItem="eIN-Q4-gDo" firstAttribute="top" secondItem="KpG-0d-hVN" secondAttribute="top" constant="-20" id="ulZ-gN-rSM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KpG-0d-hVN"/>
                     </view>

@@ -16,6 +16,7 @@ class AMapLocationTool: NSObject {
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.locationTimeout = 5
         locationManager.reGeocodeTimeout = 3
+        locationManager.delegate = self
         
         return locationManager
     }()
@@ -26,6 +27,10 @@ class AMapLocationTool: NSObject {
     }
     
     // MARK: - Public Method
+    func registerAMap() {
+        AMapServices.shared()?.apiKey = kAPPKEY.aMap
+    }
+    
     func requestLocation(isReGeocode: Bool, completion: @escaping AMapLocatingCompletionBlock) {
         locationManager.requestLocation(withReGeocode: isReGeocode, completionBlock: completion)
     }
@@ -33,10 +38,21 @@ class AMapLocationTool: NSObject {
 
 extension AMapLocationTool: AMapLocationManagerDelegate {
     func amapLocationManager(_ manager: AMapLocationManager!, didFailWithError error: Error!) {
-        
+        QL1(error)
     }
     
     func amapLocationManager(_ manager: AMapLocationManager!, didChange status: CLAuthorizationStatus) {
-        
+        QL1(status)
+        switch status {
+        case .authorizedWhenInUse, .authorizedAlways:
+            break
+        case .notDetermined:
+            break
+        case .denied, .restricted:
+            DSPrivacyIsAuthorized.openSettings()
+        default:
+            break
+        }
     }
 }
+

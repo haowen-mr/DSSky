@@ -9,6 +9,8 @@ target 'DSSky' do
     pod 'Alamofire'
     pod 'Moya'
     pod 'SwiftyJSON'
+    pod 'SnapKit'
+    pod 'MBProgressHUD'
     pod 'AMapLocation-NO-IDFA'
 
   target 'DSSkyTests' do

@@ -21,7 +21,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tHd-il-Uye">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="262"/>
                                 <connections>
-                                    <segue destination="55J-M0-2pD" kind="embed" id="U1c-Rd-Giy"/>
+                                    <segue destination="55J-M0-2pD" kind="embed" identifier="segueCurrentWeather" id="U1c-Rd-Giy"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VjR-w4-xxt">
@@ -54,7 +54,7 @@
                 <viewControllerPlaceholder storyboardName="CurrentWeatherViewController" id="55J-M0-2pD" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LsZ-sg-j5b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="626" y="-107"/>
+            <point key="canvasLocation" x="823" y="-79"/>
         </scene>
         <!--WeekWeatherViewController-->
         <scene sceneID="3Lo-qh-DgS">
@@ -62,7 +62,7 @@
                 <viewControllerPlaceholder storyboardName="WeekWeatherViewController" id="bQU-HL-ERP" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLQ-jA-NV0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="617" y="146"/>
+            <point key="canvasLocation" x="878" y="166"/>
         </scene>
     </scenes>
 </document>

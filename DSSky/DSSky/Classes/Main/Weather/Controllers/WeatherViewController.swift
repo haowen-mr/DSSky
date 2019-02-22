@@ -7,21 +7,22 @@
 //
 
 import UIKit
-import AMapLocationKit
+import CoreLocation
 
 class WeatherViewController: UIViewController {
     // MARK: - Property
     // MARK: Public
+    var currentWeatherViewController: CurrentWeatherViewController!
+    var weekWeatherViewController: WeekWeatherViewController!
     
     
     // MARK: Private
-    /// 懒加载地址
-//    private lazy var locationMalager: CLLocation = {
-//        <#statements#>
-//        return <#value#>
-//    }()
-//    
-    
+    private var currentLocation: CLLocation? {
+        didSet {
+            fetchWeather()
+        }
+    }
+        
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,22 @@ class WeatherViewController: UIViewController {
         kNotiCenter.removeObserver(self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else { return }
+        
+        switch identifier {
+        case "segueCurrentWeather":
+            guard let destination = segue.destination as? CurrentWeatherViewController else {
+                fatalError("Invalid destination view controller!")
+            }
+            destination.viewModel = CurrentWeatherViewModel()
+            currentWeatherViewController = destination
+            
+        default:
+            break
+        }
+    }
+    
     // MARK: - Action
     @objc private func appDidBecomeActive() {
         requestLocation()
@@ -42,8 +59,42 @@ class WeatherViewController: UIViewController {
 
 // MARK: - Private Method
 private extension WeatherViewController {
-    func requestLocation() {
+    
+    /// 获取天气数据
+    func fetchWeather() {
+        guard let currentLocation = currentLocation else { return }
         
+        let lat = currentLocation.coordinate.latitude
+        let lon = currentLocation.coordinate.longitude
+        NetworkTool.shared.request(lat: lat, lon: lon) { [weak self] (model, error) in
+            guard let `self` = self else { return }
+            if let error = error {
+                QL1(error)
+            }
+            else if let model = model {
+                self.currentWeatherViewController.viewModel?.weather = model
+            }
+        }
+    }
+    
+    /// 单次请求位置
+    func requestLocation() {
+        AMapLocationTool.shared.requestLocation(isReGeocode: true) { [weak self] (location, regeocoder, error) in
+            guard let `self` = self else { return }
+            if let error = error {
+                QL1(error.localizedDescription)
+                HUD.show(.text, message: error.localizedDescription)
+            }
+            else if let location = location {
+                self.currentLocation = location
+                
+                if let regeocoder = regeocoder {// 反地理编码
+                    let location = LocationModel.init(name: regeocoder.city, latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+                    self.currentWeatherViewController.viewModel?.location = location
+                }
+            }
+            
+        }
     }
     
     func setupUI() {

@@ -11,7 +11,13 @@ import UIKit
 class CurrentWeatherViewController: WeatherBaseViewController {
     // MARK: - Property
     // MARK: Public
-    
+    var viewModel: CurrentWeatherViewModel? {
+        didSet {
+            DispatchQueue.main.async {
+                self.updateView()
+            }
+        }
+    }
     
     // MARK: Private
     @IBOutlet weak var locationLabel: UILabel!
@@ -44,6 +50,24 @@ class CurrentWeatherViewController: WeatherBaseViewController {
 
 // MARK: - Private Method
 private extension CurrentWeatherViewController {
+    func updateView() {
+        activityIndictorView.stopAnimating()
+        
+        if let model = viewModel, model.isUpdateReady {
+            weatherContailerView.isHidden = false
+            
+            locationLabel.text = model.city
+            temperatureLabel.text = model.temperature
+            weatherIV.image = model.weatherIcon
+            humidityLabel.text = model.humidity
+            summaryLabel.text = model.summary
+            dateLabel.text = model.date
+        } else {
+            loadingFailedLabel.isHidden = false
+            loadingFailedLabel.text = "获取天气数据失败~"
+        }
+    }
+    
     func setupUI() {
         
     }

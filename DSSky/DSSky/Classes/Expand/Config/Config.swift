@@ -15,6 +15,10 @@ struct API {
     static let authenticatedURL = baseURL.appendingPathComponent(key)
 }
 
+struct kAPPKEY {
+    static let aMap = "4a643e86035b4f97241cd2e4c06d8fc4"
+}
+
 // MARK: - 全局尺寸
 /// 主屏幕
 struct kScreen {
@@ -107,6 +111,23 @@ public var UI_IS_IPHONE_FULLSCREEN: Bool {
     return isIPhoneXSeries
 }
 
+// MARK: - 全局时间
+/// 全局时间
+struct kTime {
+    static let d_01: TimeInterval = 0.1
+    static let duration: TimeInterval = 0.25
+    /// 全局时间：1秒
+    public let d_1: Int = 1
+    /// 全局时间：一天
+    static let day1: TimeInterval = 60 * 60 * 24
+    /// 获取验证码倒计时的时间
+    static let authCodeTime = 120
+    /// 用于请求网络成功后延时一会儿，然后处理接下来的时间
+    static let after1s = DispatchTime.now() + .seconds(1)
+    /// 延时0.25秒
+    static let afterDuration = DispatchTime.now() + 0.25
+}
+
 // MARK: - Notification
 /// 全局快捷获取通知
 public let kNotiCenter = NotificationCenter.default
@@ -114,4 +135,12 @@ public let kNotiCenter = NotificationCenter.default
 public extension NSNotification.Name {
     // 登录成功，切换至登录成功的界面
     static let kUserLoginSuccess = Notification.Name(rawValue: "kUserLoginSuccess")
+}
+
+// MARK: - UserDefaults
+/// 全局快捷获取UserDefaults
+public let kUserDefaults = UserDefaults.standard
+/// UserDefaults的 key 名字
+struct kUDKey {
+    static let notiTime = "notiTime"
 }
