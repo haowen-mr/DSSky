@@ -12,7 +12,7 @@ struct WeatherModel: Codable {
     let latitude: Double
     let longitude: Double
     let currently: CurrentWeatherModel
-    let daily: WeekWeatherModel
+//    let daily: WeekWeatherModel
     
     struct CurrentWeatherModel: Codable {
         let time: Date
@@ -22,7 +22,7 @@ struct WeatherModel: Codable {
         let humidity: Double
     }
     
-    struct WeekWeatherModel: Codable {
-        let data: [ForecastModel]
-    }
+//    struct WeekWeatherModel: Codable {
+//        let data: [ForecastModel]
+//    }
 }

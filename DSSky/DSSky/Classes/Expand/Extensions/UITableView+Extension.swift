@@ -18,20 +18,18 @@ extension UITableView {
     ///   - estimatedRowHeight: 是否需要预估高度，否的话请为nil或省略该参数
     ///   - dataSource: UITableViewDataSource
     ///   - delegate: UITableViewDelegate
-    convenience init(frame: CGRect, style: UITableView.Style, backgroundColor: UIColor = UIColor.groupTableViewBackground, estimatedRowHeight: CGFloat? = nil, dataSource: UITableViewDataSource? = nil, delegate: UITableViewDelegate? = nil) {
+    convenience init(frame: CGRect, style: UITableView.Style, backgroundColor: UIColor = UIColor.groupTableViewBackground, estimatedRowHeight: CGFloat? = nil, config: ((_ tv: UITableView) -> Void)?) {
         self.init(frame: frame, style: style)
         
         self.backgroundColor = backgroundColor
-        
         hideEmptyCells()
-        
         if let estimatedRowHeight = estimatedRowHeight {
             rowHeight = UITableView.automaticDimension
             self.estimatedRowHeight = estimatedRowHeight
         }
-        
-        self.dataSource = dataSource
-        self.delegate = delegate
+        if let config = config {
+            config(self)
+        }
     }
     
     func registerCell<T: UITableViewCell>(_ type: T.Type) {

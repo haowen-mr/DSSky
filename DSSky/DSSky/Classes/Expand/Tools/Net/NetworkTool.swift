@@ -14,14 +14,14 @@ enum NetError: Error {
     case unknown
 }
 
-internal class NetURLSession: NetURLSessionProtocol {
+class NetURLSession: NetURLSessionProtocol {
     func dataTask(with request: URLRequest, completionHandler: @escaping DataTaskClosure) -> NetURLSessionDataTaskProtocol {
         return NetURLSessionDataTask(request: request, completion: completionHandler)
     }
     
 }
 
-internal class NetURLSessionDataTask: NetURLSessionDataTaskProtocol {
+class NetURLSessionDataTask: NetURLSessionDataTaskProtocol {
     private let request: URLRequest
     private let completion: NetURLSessionProtocol.DataTaskClosure
     
@@ -44,7 +44,7 @@ internal class NetURLSessionDataTask: NetURLSessionDataTaskProtocol {
     
 }
 
-internal struct NetConfig {
+struct NetConfig {
     private static func isUITesting() -> Bool {
         return ProcessInfo.processInfo.arguments.contains("UI-TESTING")
     }
@@ -74,6 +74,7 @@ final class NetworkTool {
     func request(lat: Double, lon: Double, completion: @escaping CompletionHandler) {
         let url = baseURL.appendingPathComponent("\(lat),\(lon)")
         var request = URLRequest(url: url)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "GET"
         
         urlSession.dataTask(with: request) { (data, response, error) in

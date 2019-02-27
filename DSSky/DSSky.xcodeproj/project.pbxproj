@@ -22,6 +22,9 @@
 		310305B5221FDA58002E37C1 /* DSPrivacyIsAuthorized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310305B4221FDA58002E37C1 /* DSPrivacyIsAuthorized.swift */; };
 		310305B8221FE10F002E37C1 /* CurrentWeatherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310305B7221FE10F002E37C1 /* CurrentWeatherProtocol.swift */; };
 		310305BA221FE27D002E37C1 /* CurrentWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310305B9221FE27D002E37C1 /* CurrentWeatherView.swift */; };
+		314CDFAC2226780900663FC9 /* WeatherDataManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314CDFAB2226780900663FC9 /* WeatherDataManagerTest.swift */; };
+		314CDFAE22267CC200663FC9 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314CDFAD22267CC200663FC9 /* MockURLSession.swift */; };
+		314CDFB022267DF500663FC9 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314CDFAF22267DF500663FC9 /* MockURLSessionDataTask.swift */; };
 		315583C9221EAC4400AC6F73 /* WeatherBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315583C8221EAC4400AC6F73 /* WeatherBaseViewController.swift */; };
 		315583CB221EAC6A00AC6F73 /* CurrentWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315583CA221EAC6A00AC6F73 /* CurrentWeatherViewController.swift */; };
 		315583CD221EAC7800AC6F73 /* WeekWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315583CC221EAC7800AC6F73 /* WeekWeatherViewController.swift */; };
@@ -31,7 +34,6 @@
 		31D4E21F221E93ED00586909 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31D4E21D221E93ED00586909 /* Main.storyboard */; };
 		31D4E221221E93EE00586909 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D4E220221E93EE00586909 /* Assets.xcassets */; };
 		31D4E224221E93EE00586909 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31D4E222221E93EE00586909 /* LaunchScreen.storyboard */; };
-		31D4E22F221E93EE00586909 /* DSSkyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4E22E221E93EE00586909 /* DSSkyTests.swift */; };
 		31D4E23A221E93EE00586909 /* DSSkyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4E239221E93EE00586909 /* DSSkyUITests.swift */; };
 		31D4E24C221E94B800586909 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4E24B221E94B800586909 /* Config.swift */; };
 		31D4E253221E965200586909 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4E252221E965200586909 /* Double+Extension.swift */; };
@@ -84,6 +86,9 @@
 		310305B4221FDA58002E37C1 /* DSPrivacyIsAuthorized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSPrivacyIsAuthorized.swift; sourceTree = "<group>"; };
 		310305B7221FE10F002E37C1 /* CurrentWeatherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherProtocol.swift; sourceTree = "<group>"; };
 		310305B9221FE27D002E37C1 /* CurrentWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherView.swift; sourceTree = "<group>"; };
+		314CDFAB2226780900663FC9 /* WeatherDataManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataManagerTest.swift; sourceTree = "<group>"; };
+		314CDFAD22267CC200663FC9 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		314CDFAF22267DF500663FC9 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
 		315583C8221EAC4400AC6F73 /* WeatherBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherBaseViewController.swift; sourceTree = "<group>"; };
 		315583CA221EAC6A00AC6F73 /* CurrentWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewController.swift; sourceTree = "<group>"; };
 		315583CC221EAC7800AC6F73 /* WeekWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekWeatherViewController.swift; sourceTree = "<group>"; };
@@ -96,7 +101,6 @@
 		31D4E223221E93EE00586909 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		31D4E225221E93EE00586909 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31D4E22A221E93EE00586909 /* DSSkyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DSSkyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		31D4E22E221E93EE00586909 /* DSSkyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSSkyTests.swift; sourceTree = "<group>"; };
 		31D4E230221E93EE00586909 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31D4E235221E93EE00586909 /* DSSkyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DSSkyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D4E239221E93EE00586909 /* DSSkyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSSkyUITests.swift; sourceTree = "<group>"; };
@@ -237,8 +241,10 @@
 		31D4E22D221E93EE00586909 /* DSSkyTests */ = {
 			isa = PBXGroup;
 			children = (
-				31D4E22E221E93EE00586909 /* DSSkyTests.swift */,
 				31D4E230221E93EE00586909 /* Info.plist */,
+				314CDFAB2226780900663FC9 /* WeatherDataManagerTest.swift */,
+				314CDFAD22267CC200663FC9 /* MockURLSession.swift */,
+				314CDFAF22267DF500663FC9 /* MockURLSessionDataTask.swift */,
 			);
 			path = DSSkyTests;
 			sourceTree = "<group>";
@@ -436,6 +442,7 @@
 					};
 					31D4E229221E93EE00586909 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 						TestTargetID = 31D4E215221E93ED00586909;
 					};
 					31D4E234221E93EE00586909 = {
@@ -636,7 +643,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31D4E22F221E93EE00586909 /* DSSkyTests.swift in Sources */,
+				314CDFB022267DF500663FC9 /* MockURLSessionDataTask.swift in Sources */,
+				314CDFAE22267CC200663FC9 /* MockURLSession.swift in Sources */,
+				314CDFAC2226780900663FC9 /* WeatherDataManagerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -845,6 +854,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6CT8FYEK5B;
 				INFOPLIST_FILE = DSSkyTests/Info.plist;
@@ -855,6 +865,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qtds8810.DSSkyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DSSky.app/DSSky";
@@ -867,6 +878,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6CT8FYEK5B;
 				INFOPLIST_FILE = DSSkyTests/Info.plist;

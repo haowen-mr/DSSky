@@ -8,4 +8,4 @@
 
 import Foundation
 
-extension URLSessionDataTask: NetURLSessionDataTaskProtocol { }
+extension URLSessionDataTask: NetURLSessionDataTaskProtocol {}
