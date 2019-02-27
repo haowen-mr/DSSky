@@ -130,7 +130,7 @@
                         <outlet property="activityIndictorView" destination="u0V-Fm-1ZP" id="3Jx-AO-Z0G"/>
                         <outlet property="loadingFailedLabel" destination="j2A-1R-CXn" id="KxM-nL-cp9"/>
                         <outlet property="tableView" destination="32l-Yb-iEK" id="cpi-eO-jCk"/>
-                        <outlet property="weatherContailerView" destination="stn-xm-TIV" id="mI6-qC-eTt"/>
+                        <outlet property="weatherContainerView" destination="stn-xm-TIV" id="Wdm-1S-BQD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7NX-F1-lcq" userLabel="First Responder" sceneMemberID="firstResponder"/>

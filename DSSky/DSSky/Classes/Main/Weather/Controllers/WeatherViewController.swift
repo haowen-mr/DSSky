@@ -17,18 +17,13 @@ class WeatherViewController: UIViewController {
     
     
     // MARK: Private
-    private var currentLocation: CLLocation? {
-        didSet {
-            fetchWeather()
-        }
-    }
         
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
-        kNotiCenter.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
+        setupNoti()
     }
     
     deinit {
@@ -44,6 +39,7 @@ class WeatherViewController: UIViewController {
                 fatalError("Invalid destination view controller!")
             }
             destination.viewModel = CurrentWeatherViewModel()
+            destination.delegate = self
             currentWeatherViewController = destination
             
         default:
@@ -61,15 +57,13 @@ class WeatherViewController: UIViewController {
 private extension WeatherViewController {
     
     /// 获取天气数据
-    func fetchWeather() {
-        guard let currentLocation = currentLocation else { return }
-        
+    func fetchWeather(_ currentLocation: CLLocation) {
         let lat = currentLocation.coordinate.latitude
         let lon = currentLocation.coordinate.longitude
         NetworkTool.shared.request(lat: lat, lon: lon) { [weak self] (model, error) in
             guard let `self` = self else { return }
             if let error = error {
-                QL1(error)
+                HUD.show(.text, message: error.localizedDescription)
             }
             else if let model = model {
                 self.currentWeatherViewController.viewModel?.weather = model
@@ -77,16 +71,20 @@ private extension WeatherViewController {
         }
     }
     
+    /// 通知设置
+    func setupNoti() {
+        kNotiCenter.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
+    }
+    
     /// 单次请求位置
     func requestLocation() {
         AMapLocationTool.shared.requestLocation(isReGeocode: true) { [weak self] (location, regeocoder, error) in
             guard let `self` = self else { return }
             if let error = error {
-                QL1(error.localizedDescription)
                 HUD.show(.text, message: error.localizedDescription)
             }
             else if let location = location {
-                self.currentLocation = location
+                self.fetchWeather(location)
                 
                 if let regeocoder = regeocoder {// 反地理编码
                     let location = LocationModel.init(name: regeocoder.city, latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
@@ -100,4 +98,15 @@ private extension WeatherViewController {
     func setupUI() {
         
     }
+}
+
+extension WeatherViewController: CurrentWeatherViewControllerDelegate {
+    func locationClick(vc: CurrentWeatherViewController) {
+        QLPlusLine()
+    }
+    
+    func settingsClick(vc: CurrentWeatherViewController) {
+        QLPlusLine()
+    }
+    
 }

@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol CurrentWeatherViewControllerDelegate: class {
+    func locationClick(vc: CurrentWeatherViewController)
+    func settingsClick(vc: CurrentWeatherViewController)
+}
+
 class CurrentWeatherViewController: WeatherBaseViewController {
     // MARK: - Property
     // MARK: Public
@@ -18,6 +23,8 @@ class CurrentWeatherViewController: WeatherBaseViewController {
             }
         }
     }
+    
+    weak var delegate: CurrentWeatherViewControllerDelegate?
     
     // MARK: Private
     
@@ -32,11 +39,11 @@ class CurrentWeatherViewController: WeatherBaseViewController {
     
     // MARK: - Action
     @IBAction func locationBtnClick() {
-        QLPlusLine()
+        delegate?.locationClick(vc: self)
     }
     
     @IBAction func settingsBtnClick() {
-        QLPlusLine()
+        delegate?.settingsClick(vc: self)
     }
     
     
@@ -48,9 +55,9 @@ private extension CurrentWeatherViewController {
         activityIndictorView.stopAnimating()
         
         if let model = viewModel, model.isUpdateReady {
-            weatherContailerView.isHidden = false
+            weatherContainerView.isHidden = false
             
-            (weatherContailerView as! CurrentWeatherView).showData(model)
+            (weatherContainerView as! CurrentWeatherView).showData(model)
         } else {
             loadingFailedLabel.isHidden = false
             loadingFailedLabel.text = "获取天气数据失败~"

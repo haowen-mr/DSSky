@@ -12,7 +12,7 @@ class WeatherBaseViewController: UIViewController {
     // MARK: - Property
     // MARK: Public
     
-    @IBOutlet weak var weatherContailerView: UIView!
+    @IBOutlet weak var weatherContainerView: UIView!
     @IBOutlet weak var loadingFailedLabel: UILabel!
     @IBOutlet weak var activityIndictorView: UIActivityIndicatorView!
     
@@ -34,10 +34,11 @@ class WeatherBaseViewController: UIViewController {
 // MARK: - Private Method
 private extension WeatherBaseViewController {
     func setupUI() {
-        weatherContailerView.isHidden = true
+        weatherContainerView.isHidden = true
         loadingFailedLabel.isHidden = true
         
         activityIndictorView.startAnimating()
+        activityIndictorView.hidesWhenStopped = true
     }
 }
 

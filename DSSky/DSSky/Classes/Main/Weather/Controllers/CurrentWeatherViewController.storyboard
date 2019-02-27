@@ -18,13 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="LlI-Iq-4FD">
-                                <rect key="frame" x="177" y="323" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="LlI-Iq-4FD">
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
                             </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7c-jf-iCO">
-                                <rect key="frame" x="166" y="323" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7c-jf-iCO">
+                                <rect key="frame" x="8" y="323" width="359" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -127,9 +125,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="LlI-Iq-4FD" firstAttribute="centerX" secondItem="RPv-FT-pA1" secondAttribute="centerX" id="68l-bU-t1A"/>
+                            <constraint firstItem="LlI-Iq-4FD" firstAttribute="centerY" secondItem="RPv-FT-pA1" secondAttribute="centerY" id="B1o-IX-bKJ"/>
+                            <constraint firstItem="F7c-jf-iCO" firstAttribute="centerY" secondItem="RPv-FT-pA1" secondAttribute="centerY" id="Gwm-tu-xPD"/>
                             <constraint firstItem="eIN-Q4-gDo" firstAttribute="trailing" secondItem="KpG-0d-hVN" secondAttribute="trailing" id="M2K-7X-cLi"/>
                             <constraint firstItem="eIN-Q4-gDo" firstAttribute="bottom" secondItem="KpG-0d-hVN" secondAttribute="bottom" id="NNN-Py-agY"/>
                             <constraint firstItem="eIN-Q4-gDo" firstAttribute="leading" secondItem="KpG-0d-hVN" secondAttribute="leading" id="QLj-QY-T9c"/>
+                            <constraint firstItem="KpG-0d-hVN" firstAttribute="trailing" secondItem="F7c-jf-iCO" secondAttribute="trailing" constant="8" id="Y2b-i0-EhV"/>
+                            <constraint firstItem="F7c-jf-iCO" firstAttribute="leading" secondItem="KpG-0d-hVN" secondAttribute="leading" constant="8" id="aXH-vB-BB1"/>
+                            <constraint firstItem="F7c-jf-iCO" firstAttribute="centerX" secondItem="RPv-FT-pA1" secondAttribute="centerX" id="cw2-Yi-9ee"/>
                             <constraint firstItem="eIN-Q4-gDo" firstAttribute="top" secondItem="KpG-0d-hVN" secondAttribute="top" constant="-20" id="ulZ-gN-rSM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KpG-0d-hVN"/>
@@ -137,7 +141,7 @@
                     <connections>
                         <outlet property="activityIndictorView" destination="LlI-Iq-4FD" id="9kC-Nt-hQO"/>
                         <outlet property="loadingFailedLabel" destination="F7c-jf-iCO" id="zhx-cp-Ic3"/>
-                        <outlet property="weatherContailerView" destination="eIN-Q4-gDo" id="si4-JJ-QGe"/>
+                        <outlet property="weatherContainerView" destination="eIN-Q4-gDo" id="Cua-ZG-uMA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9P5-jY-R1g" userLabel="First Responder" sceneMemberID="firstResponder"/>
