@@ -69,3 +69,4 @@ fastlane/test_output
 
 # 自己添加
 .DS_Store
+.xcworkspace
