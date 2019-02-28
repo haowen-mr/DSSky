@@ -40,6 +40,7 @@
 		317A8FDE2227CD0400FA1145 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317A8FDD2227CD0400FA1145 /* SettingsViewController.swift */; };
 		317A8FE02227CE0400FA1145 /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 317A8FDF2227CE0400FA1145 /* SettingsViewController.storyboard */; };
 		317A8FE32227CECC00FA1145 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317A8FE22227CECC00FA1145 /* SettingsTableViewCell.swift */; };
+		317A8FE62227E48200FA1145 /* SettingsDateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317A8FE52227E48200FA1145 /* SettingsDateViewModel.swift */; };
 		31D4E21A221E93ED00586909 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4E219221E93ED00586909 /* AppDelegate.swift */; };
 		31D4E21F221E93ED00586909 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31D4E21D221E93ED00586909 /* Main.storyboard */; };
 		31D4E221221E93EE00586909 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D4E220221E93EE00586909 /* Assets.xcassets */; };
@@ -126,6 +127,7 @@
 		317A8FDD2227CD0400FA1145 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		317A8FDF2227CE0400FA1145 /* SettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsViewController.storyboard; sourceTree = "<group>"; };
 		317A8FE22227CECC00FA1145 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		317A8FE52227E48200FA1145 /* SettingsDateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDateViewModel.swift; sourceTree = "<group>"; };
 		31D4E216221E93ED00586909 /* DSSky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSSky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D4E219221E93ED00586909 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31D4E21E221E93ED00586909 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 		317A8FD92227C75900FA1145 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				317A8FE42227E3A700FA1145 /* ViewModel */,
 				317A8FE12227CEB500FA1145 /* View */,
 				317A8FDC2227CCBC00FA1145 /* Controller */,
 			);
@@ -259,6 +262,14 @@
 				317A8FE22227CECC00FA1145 /* SettingsTableViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		317A8FE42227E3A700FA1145 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				317A8FE52227E48200FA1145 /* SettingsDateViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		31D4E20D221E93ED00586909 = {
@@ -763,6 +774,7 @@
 				3103059B221F9F8B002E37C1 /* WeekWeatherTableViewCell.swift in Sources */,
 				31D4E25A221E97F800586909 /* NetworkTool.swift in Sources */,
 				310305A2221FA3CA002E37C1 /* LocationModel.swift in Sources */,
+				317A8FE62227E48200FA1145 /* SettingsDateViewModel.swift in Sources */,
 				310305B5221FDA58002E37C1 /* DSPrivacyIsAuthorized.swift in Sources */,
 				31D4E25C221E989200586909 /* NetURLSessionProtocol.swift in Sources */,
 				31D4E260221E9F1C00586909 /* URLSession+Extension.swift in Sources */,
