@@ -24,6 +24,7 @@ class WeekWeatherTableViewCell: UITableViewCell {
     // MARK: - LifeCycle
     
     
+    // MARK: - Public Method
     
     // MARK: - Action
     

@@ -84,16 +84,18 @@ class DSPrivacyIsAuthorized {
     }
     
     /// 打开系统设置
-    class func openSettings(message: String = "为了及时收到新订单，请打开启老吕加油的通知功能") {
+    class func openSettings(message: String = "为了及时收到新订单，请打开启通知功能") {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            UIAlertController.show(title: "温馨提醒", message: message, preferredStyle: .alert, cancel: "下次再说", cancelHandler: { (_) in
-                kUserDefaults.set(Date(timeIntervalSinceNow: kTime.day1), forKey: kUDKey.notiTime)
-            }, confirm: "设置", confirmHandler: { (_) in
-                if let url = URL(string: UIApplication.openSettingsURLString),
-                UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.openURL(url)
-                }
-            })
+            if Defaults[.notiTime] > Date() {
+                UIAlertController.show(title: "温馨提醒", message: message, preferredStyle: .alert, cancel: "下次再说", cancelHandler: { (_) in
+                    Defaults[.notiTime] = Date(timeIntervalSinceNow: kTime.day1)
+                }, confirm: "设置", confirmHandler: { (_) in
+                    if let url = URL(string: UIApplication.openSettingsURLString),
+                        UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.openURL(url)
+                    }
+                })
+            }
         }
     }
 }

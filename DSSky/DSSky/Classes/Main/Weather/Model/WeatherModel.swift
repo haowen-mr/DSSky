@@ -15,7 +15,7 @@ struct WeatherModel: Decodable {
     let latitude: Double
     let longitude: Double
     let currently: CurrentWeatherModel
-//    let daily: WeekWeatherModel
+    let daily: WeekWeatherModel
     
     struct CurrentWeatherModel: Decodable {
         let time: String
@@ -25,9 +25,9 @@ struct WeatherModel: Decodable {
         let humidity: String
     }
     
-//    struct WeekWeatherModel: Codable {
-//        let data: [ForecastModel]
-//    }
+    struct WeekWeatherModel: Decodable {
+        let data: [ForecastModel]
+    }
 }
 
 extension WeatherModel.CurrentWeatherModel {

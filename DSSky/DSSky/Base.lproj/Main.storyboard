@@ -27,7 +27,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VjR-w4-xxt">
                                 <rect key="frame" x="0.0" y="274" width="375" height="393"/>
                                 <connections>
-                                    <segue destination="bQU-HL-ERP" kind="embed" id="iTe-4Q-UG9"/>
+                                    <segue destination="bQU-HL-ERP" kind="embed" identifier="segueWeekWeather" id="iTe-4Q-UG9"/>
                                 </connections>
                             </containerView>
                         </subviews>

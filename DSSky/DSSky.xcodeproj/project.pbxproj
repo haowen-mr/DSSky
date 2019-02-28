@@ -33,6 +33,9 @@
 		315583CD221EAC7800AC6F73 /* WeekWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315583CC221EAC7800AC6F73 /* WeekWeatherViewController.swift */; };
 		315583D6221EB04E00AC6F73 /* CurrentWeatherViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 315583D5221EB04E00AC6F73 /* CurrentWeatherViewController.storyboard */; };
 		315583D8221EB17200AC6F73 /* WeekWeatherViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 315583D7221EB17200AC6F73 /* WeekWeatherViewController.storyboard */; };
+		317A8FD42227BB1700FA1145 /* WeekWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317A8FD32227BB1700FA1145 /* WeekWeatherViewModel.swift */; };
+		317A8FD62227C12E00FA1145 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317A8FD52227C12E00FA1145 /* Notifications.swift */; };
+		317A8FD82227C19B00FA1145 /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317A8FD72227C19B00FA1145 /* DefaultsKeys.swift */; };
 		31D4E21A221E93ED00586909 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4E219221E93ED00586909 /* AppDelegate.swift */; };
 		31D4E21F221E93ED00586909 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31D4E21D221E93ED00586909 /* Main.storyboard */; };
 		31D4E221221E93EE00586909 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D4E220221E93EE00586909 /* Assets.xcassets */; };
@@ -112,6 +115,9 @@
 		315583D5221EB04E00AC6F73 /* CurrentWeatherViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CurrentWeatherViewController.storyboard; sourceTree = "<group>"; };
 		315583D7221EB17200AC6F73 /* WeekWeatherViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WeekWeatherViewController.storyboard; sourceTree = "<group>"; };
 		317A8FD12227AE6B00FA1145 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		317A8FD32227BB1700FA1145 /* WeekWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekWeatherViewModel.swift; sourceTree = "<group>"; };
+		317A8FD52227C12E00FA1145 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		317A8FD72227C19B00FA1145 /* DefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
 		31D4E216221E93ED00586909 /* DSSky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSSky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D4E219221E93ED00586909 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31D4E21E221E93ED00586909 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -208,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				3103059F221FA2D1002E37C1 /* CurrentWeatherViewModel.swift */,
+				317A8FD32227BB1700FA1145 /* WeekWeatherViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -307,6 +314,8 @@
 			isa = PBXGroup;
 			children = (
 				31D4E24B221E94B800586909 /* Config.swift */,
+				317A8FD52227C12E00FA1145 /* Notifications.swift */,
+				317A8FD72227C19B00FA1145 /* DefaultsKeys.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -418,6 +427,7 @@
 				31D4E226221E93EE00586909 /* Sources */,
 				31D4E227221E93EE00586909 /* Frameworks */,
 				31D4E228221E93EE00586909 /* Resources */,
+				56463B1E4467D1349FB7034D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -561,6 +571,7 @@
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -572,6 +583,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -600,6 +612,40 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		56463B1E4467D1349FB7034D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DSSkyTests/Pods-DSSkyTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DSSkyTests/Pods-DSSkyTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		92368D8F0FB8D485E32E2371 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -615,6 +661,7 @@
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -626,6 +673,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -686,13 +734,16 @@
 				31D4E21A221E93ED00586909 /* AppDelegate.swift in Sources */,
 				31D4E262221E9F9100586909 /* URLSessionDataTask+Extension.swift in Sources */,
 				315583CB221EAC6A00AC6F73 /* CurrentWeatherViewController.swift in Sources */,
+				317A8FD82227C19B00FA1145 /* DefaultsKeys.swift in Sources */,
 				314CDFB42226940400663FC9 /* KeyedDecodingContainerProtocol+Decode.swift in Sources */,
 				310305A0221FA2D1002E37C1 /* CurrentWeatherViewModel.swift in Sources */,
 				310305B8221FE10F002E37C1 /* CurrentWeatherProtocol.swift in Sources */,
 				31D4E26A221EA36A00586909 /* WeatherViewController.swift in Sources */,
 				310305A9221FC511002E37C1 /* Helper.swift in Sources */,
+				317A8FD62227C12E00FA1145 /* Notifications.swift in Sources */,
 				31D4E265221EA06100586909 /* WeatherModel.swift in Sources */,
 				31D4E24C221E94B800586909 /* Config.swift in Sources */,
+				317A8FD42227BB1700FA1145 /* WeekWeatherViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

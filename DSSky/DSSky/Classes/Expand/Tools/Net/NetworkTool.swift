@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 enum NetError: Error {
     case failedRequest
@@ -89,6 +90,7 @@ final class NetworkTool {
         } else if let data = data, let response = response as? HTTPURLResponse {
             if response.statusCode == 200 {
                 do {
+                    QL1(try JSON(data: data))
                     let decoder = JSONDecoder()
                     decoder.dateDecodingStrategy = .secondsSince1970
                     let weatherData = try decoder.decode(WeatherModel.self, from: data)

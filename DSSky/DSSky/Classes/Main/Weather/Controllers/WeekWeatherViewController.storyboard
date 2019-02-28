@@ -18,13 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="u0V-Fm-1ZP">
-                                <rect key="frame" x="177" y="323" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="u0V-Fm-1ZP">
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
                             </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j2A-1R-CXn">
-                                <rect key="frame" x="166" y="323" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j2A-1R-CXn">
+                                <rect key="frame" x="8" y="323" width="359" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -119,7 +117,13 @@
                         <color key="backgroundColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="3sA-91-sel" firstAttribute="trailing" secondItem="stn-xm-TIV" secondAttribute="trailing" id="4TE-8Z-JIb"/>
+                            <constraint firstItem="j2A-1R-CXn" firstAttribute="leading" secondItem="3sA-91-sel" secondAttribute="leading" constant="8" id="7hn-eG-fiz"/>
                             <constraint firstItem="stn-xm-TIV" firstAttribute="leading" secondItem="3sA-91-sel" secondAttribute="leading" id="AJC-p0-Nfy"/>
+                            <constraint firstItem="j2A-1R-CXn" firstAttribute="centerX" secondItem="e1g-Wc-7tM" secondAttribute="centerX" id="Fex-vK-H6G"/>
+                            <constraint firstItem="u0V-Fm-1ZP" firstAttribute="centerX" secondItem="e1g-Wc-7tM" secondAttribute="centerX" id="QsC-cS-ywk"/>
+                            <constraint firstItem="u0V-Fm-1ZP" firstAttribute="centerY" secondItem="e1g-Wc-7tM" secondAttribute="centerY" id="T4G-Rb-46g"/>
+                            <constraint firstItem="3sA-91-sel" firstAttribute="trailing" secondItem="j2A-1R-CXn" secondAttribute="trailing" constant="8" id="Xmh-zl-V8s"/>
+                            <constraint firstItem="j2A-1R-CXn" firstAttribute="centerY" secondItem="e1g-Wc-7tM" secondAttribute="centerY" id="ZA5-ja-LI1"/>
                             <constraint firstItem="stn-xm-TIV" firstAttribute="top" secondItem="e1g-Wc-7tM" secondAttribute="top" id="aFE-AZ-S0d"/>
                             <constraint firstItem="3sA-91-sel" firstAttribute="bottom" secondItem="stn-xm-TIV" secondAttribute="bottom" id="hYS-Rp-4VL"/>
                         </constraints>

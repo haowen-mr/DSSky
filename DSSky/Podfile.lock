@@ -12,6 +12,7 @@ PODS:
   - Result (4.1.0)
   - SnapKit (4.2.0)
   - SwiftyJSON (4.2.0)
+  - SwiftyUserDefaults (4.0.0-beta.1)
 
 DEPENDENCIES:
   - AMapLocation-NO-IDFA
@@ -19,6 +20,7 @@ DEPENDENCIES:
   - Moya
   - SnapKit
   - SwiftyJSON
+  - SwiftyUserDefaults (= 4.0.0-beta.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -30,6 +32,7 @@ SPEC REPOS:
     - Result
     - SnapKit
     - SwiftyJSON
+    - SwiftyUserDefaults
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
@@ -40,7 +43,8 @@ SPEC CHECKSUMS:
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  SwiftyUserDefaults: d26f8e8d8ef800e20642276ffa7566313e36c9a3
 
-PODFILE CHECKSUM: 57f5505eaf280fb2a6769f33535bc65758880d9c
+PODFILE CHECKSUM: 075ba0ad0eb258d9fc6fcbf13e88ef7d1b54d167
 
 COCOAPODS: 1.6.0

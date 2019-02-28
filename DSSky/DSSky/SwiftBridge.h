@@ -13,5 +13,7 @@
 //#import <AMapFoundationKit/AMapFoundationKit.h>
 //#import <AMapLocationKit/AMapLocationKit.h>
 
+@import SwiftyUserDefaults;
+
 
 #endif /* SwiftBridge_h */

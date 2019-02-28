@@ -60,7 +60,7 @@ private extension CurrentWeatherViewController {
             (weatherContainerView as! CurrentWeatherView).showData(vm)
         } else {
             loadingFailedLabel.isHidden = false
-            loadingFailedLabel.text = "获取天气数据失败~"
+            loadingFailedLabel.text = kTitle.loadError
         }
     }
     

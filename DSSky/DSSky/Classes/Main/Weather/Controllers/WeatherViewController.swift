@@ -41,7 +41,11 @@ class WeatherViewController: UIViewController {
             destination.viewModel = CurrentWeatherViewModel()
             destination.delegate = self
             currentWeatherViewController = destination
-            
+        case "segueWeekWeather":
+            guard let destination = segue.destination as? WeekWeatherViewController else {
+                fatalError("Invalid destination view controller!")
+            }
+            weekWeatherViewController = destination
         default:
             break
         }
@@ -67,6 +71,7 @@ private extension WeatherViewController {
             }
             else if let model = model {
                 self.currentWeatherViewController.viewModel?.weather = model
+                self.weekWeatherViewController.viewModel = WeekWeatherViewModel(weekWeatherModels: model.daily.data)
             }
         }
     }

@@ -128,19 +128,6 @@ struct kTime {
     static let afterDuration = DispatchTime.now() + 0.25
 }
 
-// MARK: - Notification
-/// 全局快捷获取通知
-public let kNotiCenter = NotificationCenter.default
-
-public extension NSNotification.Name {
-    // 登录成功，切换至登录成功的界面
-    static let kUserLoginSuccess = Notification.Name(rawValue: "kUserLoginSuccess")
-}
-
-// MARK: - UserDefaults
-/// 全局快捷获取UserDefaults
-public let kUserDefaults = UserDefaults.standard
-/// UserDefaults的 key 名字
-struct kUDKey {
-    static let notiTime = "notiTime"
+struct kTitle {
+    static let loadError = "数据获取失败"
 }

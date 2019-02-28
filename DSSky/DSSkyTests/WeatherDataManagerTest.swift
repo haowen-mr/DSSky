@@ -100,16 +100,35 @@ class WeatherDataManagerTest: XCTestCase {
             "icon" : "snow",
             "time" : 1507180335,
             "summary" : "Light Snow"
+        },
+        "daily": {
+            "data": [
+                {
+                    "time": 1507180335,
+                    "icon": "clear-day",
+                    "temperatureLow": 66,
+                    "temperatureHigh": 82,
+                    "humidity": 0.25
+                }
+            ]
         }
     }
     """.data(using: .utf8)!
         session.responseData = data
-                
+        
         var model: WeatherModel? = nil
         manager.request(lat: 52, lon: 100) { (m, _) in
             model = m
         }
         
+        let expectedWeekData = WeatherModel.WeekWeatherModel(data: [
+            ForecastModel(
+                time: Date(timeIntervalSince1970: 1507180335),
+                temperatureLow: 66,
+                temperatureHigh: 82,
+                icon: "clear-day",
+                humidity: 0.25)
+            ])
         let expected = WeatherModel(
             latitude: 52,
             longitude: 100,
@@ -118,7 +137,8 @@ class WeatherDataManagerTest: XCTestCase {
                 summary: "Light Snow",
                 icon: UIImage(named: "snow")!,
                 temperature: "23",
-                humidity: "0.91"))
+                humidity: "0.91"),
+            daily: expectedWeekData)
         
         XCTAssertEqual(model?.latitude, expected.latitude)
     }
