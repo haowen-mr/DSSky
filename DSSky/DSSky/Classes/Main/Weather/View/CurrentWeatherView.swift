@@ -31,11 +31,11 @@ class CurrentWeatherView: UIView {
     // MARK: - Publid Method
     func showData(_ model: CurrentWeatherProtocol) {
         locationLabel.text = model.locationModel.name
-        temperatureLabel.text = model.weatherModel.currently.temperature
+        temperatureLabel.text = model.temperature
         weatherIV.image = model.weatherModel.currently.icon
         humidityLabel.text = model.weatherModel.currently.humidity
         summaryLabel.text = model.weatherModel.currently.summary
-        dateLabel.text = model.weatherModel.currently.time
+        dateLabel.text = model.time
     }
     
     // MARK: - Action

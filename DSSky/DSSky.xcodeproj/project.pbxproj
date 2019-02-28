@@ -36,6 +36,10 @@
 		317A8FD42227BB1700FA1145 /* WeekWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317A8FD32227BB1700FA1145 /* WeekWeatherViewModel.swift */; };
 		317A8FD62227C12E00FA1145 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317A8FD52227C12E00FA1145 /* Notifications.swift */; };
 		317A8FD82227C19B00FA1145 /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317A8FD72227C19B00FA1145 /* DefaultsKeys.swift */; };
+		317A8FDB2227C90700FA1145 /* SettingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317A8FDA2227C90700FA1145 /* SettingTool.swift */; };
+		317A8FDE2227CD0400FA1145 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317A8FDD2227CD0400FA1145 /* SettingsViewController.swift */; };
+		317A8FE02227CE0400FA1145 /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 317A8FDF2227CE0400FA1145 /* SettingsViewController.storyboard */; };
+		317A8FE32227CECC00FA1145 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317A8FE22227CECC00FA1145 /* SettingsTableViewCell.swift */; };
 		31D4E21A221E93ED00586909 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4E219221E93ED00586909 /* AppDelegate.swift */; };
 		31D4E21F221E93ED00586909 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31D4E21D221E93ED00586909 /* Main.storyboard */; };
 		31D4E221221E93EE00586909 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D4E220221E93EE00586909 /* Assets.xcassets */; };
@@ -118,6 +122,10 @@
 		317A8FD32227BB1700FA1145 /* WeekWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekWeatherViewModel.swift; sourceTree = "<group>"; };
 		317A8FD52227C12E00FA1145 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		317A8FD72227C19B00FA1145 /* DefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
+		317A8FDA2227C90700FA1145 /* SettingTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTool.swift; sourceTree = "<group>"; };
+		317A8FDD2227CD0400FA1145 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		317A8FDF2227CE0400FA1145 /* SettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsViewController.storyboard; sourceTree = "<group>"; };
+		317A8FE22227CECC00FA1145 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		31D4E216221E93ED00586909 /* DSSky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSSky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D4E219221E93ED00586909 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31D4E21E221E93ED00586909 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -227,6 +235,32 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		317A8FD92227C75900FA1145 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				317A8FE12227CEB500FA1145 /* View */,
+				317A8FDC2227CCBC00FA1145 /* Controller */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		317A8FDC2227CCBC00FA1145 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				317A8FDD2227CD0400FA1145 /* SettingsViewController.swift */,
+				317A8FDF2227CE0400FA1145 /* SettingsViewController.storyboard */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		317A8FE12227CEB500FA1145 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				317A8FE22227CECC00FA1145 /* SettingsTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		31D4E20D221E93ED00586909 = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +329,7 @@
 		31D4E248221E943300586909 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				317A8FD92227C75900FA1145 /* Settings */,
 				31D4E24D221E956600586909 /* Weather */,
 			);
 			path = Main;
@@ -326,7 +361,7 @@
 				310305B6221FE0F1002E37C1 /* Protocol */,
 				3103059E221FA2A5002E37C1 /* ViewModel */,
 				31030599221F9F6C002E37C1 /* View */,
-				31D4E268221EA33500586909 /* Controllers */,
+				31D4E268221EA33500586909 /* Controller */,
 				31D4E263221EA04B00586909 /* Model */,
 			);
 			path = Weather;
@@ -357,6 +392,7 @@
 				310305A8221FC511002E37C1 /* Helper.swift */,
 				310305B0221FD7E3002E37C1 /* HUD.swift */,
 				310305B4221FDA58002E37C1 /* DSPrivacyIsAuthorized.swift */,
+				317A8FDA2227C90700FA1145 /* SettingTool.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -383,7 +419,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		31D4E268221EA33500586909 /* Controllers */ = {
+		31D4E268221EA33500586909 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				31D4E269221EA36A00586909 /* WeatherViewController.swift */,
@@ -393,7 +429,7 @@
 				315583CC221EAC7800AC6F73 /* WeekWeatherViewController.swift */,
 				315583D7221EB17200AC6F73 /* WeekWeatherViewController.storyboard */,
 			);
-			path = Controllers;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -513,6 +549,7 @@
 				31D4E224221E93EE00586909 /* LaunchScreen.storyboard in Resources */,
 				31D4E221221E93EE00586909 /* Assets.xcassets in Resources */,
 				31D4E21F221E93ED00586909 /* Main.storyboard in Resources */,
+				317A8FE02227CE0400FA1145 /* SettingsViewController.storyboard in Resources */,
 				315583D8221EB17200AC6F73 /* WeekWeatherViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -717,6 +754,7 @@
 				315583C9221EAC4400AC6F73 /* WeatherBaseViewController.swift in Sources */,
 				31D4E257221E96F300586909 /* CLLocation+Extension.swift in Sources */,
 				31D4E25E221E98FD00586909 /* NetURLSessionDataTaskProtocol.swift in Sources */,
+				317A8FDB2227C90700FA1145 /* SettingTool.swift in Sources */,
 				310305B3221FD873002E37C1 /* UIFont+Extension.swift in Sources */,
 				310305A5221FA84E002E37C1 /* AmapLocationTool.swift in Sources */,
 				310305B1221FD7E3002E37C1 /* HUD.swift in Sources */,
@@ -732,7 +770,9 @@
 				3103059D221FA0A8002E37C1 /* UITableView+Extension.swift in Sources */,
 				310305AD221FC71B002E37C1 /* UIColor+Extension.swift in Sources */,
 				31D4E21A221E93ED00586909 /* AppDelegate.swift in Sources */,
+				317A8FE32227CECC00FA1145 /* SettingsTableViewCell.swift in Sources */,
 				31D4E262221E9F9100586909 /* URLSessionDataTask+Extension.swift in Sources */,
+				317A8FDE2227CD0400FA1145 /* SettingsViewController.swift in Sources */,
 				315583CB221EAC6A00AC6F73 /* CurrentWeatherViewController.swift in Sources */,
 				317A8FD82227C19B00FA1145 /* DefaultsKeys.swift in Sources */,
 				314CDFB42226940400663FC9 /* KeyedDecodingContainerProtocol+Decode.swift in Sources */,

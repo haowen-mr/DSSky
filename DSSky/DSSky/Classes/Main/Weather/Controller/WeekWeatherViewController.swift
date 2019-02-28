@@ -30,13 +30,7 @@ class WeekWeatherViewController: WeatherBaseViewController {
         setupUI()
     }
     
-    
-    // MARK: - Action
-    
-}
-
-// MARK: - Private Method
-private extension WeekWeatherViewController {
+    // MARK: - Public Method
     func updateView() {
         activityIndictorView.stopAnimating()
         
@@ -49,6 +43,13 @@ private extension WeekWeatherViewController {
         }
     }
     
+    
+    // MARK: - Action
+    
+}
+
+// MARK: - Private Method
+private extension WeekWeatherViewController {
     func setupUI() {
         
     }

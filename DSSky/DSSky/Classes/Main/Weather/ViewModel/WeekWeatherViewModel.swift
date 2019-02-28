@@ -26,13 +26,12 @@ struct WeekWeatherViewModel {
     }
     
     func temperature(for index: Int) -> String {
-        let min = String(format: "%.0f °C",
-                         weekWeatherModels[index].temperatureLow.toCelsius())
-        let max = String(format: "%.0f °C",
-                         weekWeatherModels[index].temperatureHigh.toCelsius())
+        let min = format(temperature: weekWeatherModels[index].temperatureLow)
+        let max = format(temperature: weekWeatherModels[index].temperatureHigh)
         
         return "\(min) - \(max)"
     }
+
     
     func weatherIcon(for index: Int) -> UIImage? {
         return UIImage(named: weekWeatherModels[index].icon)
@@ -50,4 +49,16 @@ struct WeekWeatherViewModel {
         return weekWeatherModels.count
     }
     
+}
+
+private extension WeekWeatherViewModel {
+    /// Helpers
+    private func format(temperature: Double) -> String {
+        switch SettingTool.temperatureType() {
+        case .celsius:
+            return String(format: "%.0f °C", temperature.toCelsius())
+        case .fahrenheit:
+            return String(format: "%.0f °F", temperature)
+        }
+    }
 }

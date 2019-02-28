@@ -128,6 +128,9 @@ struct kTime {
     static let afterDuration = DispatchTime.now() + 0.25
 }
 
+// MARK: - 全局文案
 struct kTitle {
     static let loadError = "数据获取失败"
+    static let guardError = "guardError"
 }
+

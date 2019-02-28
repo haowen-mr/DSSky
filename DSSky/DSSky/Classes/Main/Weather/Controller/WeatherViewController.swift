@@ -55,6 +55,11 @@ class WeatherViewController: UIViewController {
     @objc private func appDidBecomeActive() {
         requestLocation()
     }
+    
+    @IBAction func unwindToRootViewController(
+        segue: UIStoryboardSegue) {
+        
+    }
 }
 
 // MARK: - Private Method
@@ -105,6 +110,7 @@ private extension WeatherViewController {
     }
 }
 
+// MARK: - CurrentWeatherViewControllerDelegate
 extension WeatherViewController: CurrentWeatherViewControllerDelegate {
     func locationClick(vc: CurrentWeatherViewController) {
         QLPlusLine()
@@ -112,6 +118,9 @@ extension WeatherViewController: CurrentWeatherViewControllerDelegate {
     
     func settingsClick(vc: CurrentWeatherViewController) {
         QLPlusLine()
+        currentWeatherViewController.updateView()
+        weekWeatherViewController.updateView()
     }
     
 }
+

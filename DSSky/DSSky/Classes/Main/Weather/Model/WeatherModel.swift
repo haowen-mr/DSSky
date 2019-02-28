@@ -8,9 +8,6 @@
 
 import UIKit
 
-let formatter = DateFormatter()
-
-
 struct WeatherModel: Decodable {
     let latitude: Double
     let longitude: Double
@@ -18,10 +15,10 @@ struct WeatherModel: Decodable {
     let daily: WeekWeatherModel
     
     struct CurrentWeatherModel: Decodable {
-        let time: String
+        let time: Date
         let summary: String
         let icon: UIImage
-        let temperature: String
+        let temperature: Double
         let humidity: String
     }
     
@@ -38,11 +35,10 @@ extension WeatherModel.CurrentWeatherModel {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
-        time = formatter.string(from: values.ds_decode(Date.self, forKey: .time) ?? Date())
+        time = values.ds_decode(Date.self, forKey: .time) ?? Date()
         summary = values.ds_decode(String.self, forKey: .summary)
         icon = UIImage(named: values.ds_decode(String.self, forKey: .icon)) ?? UIImage(named: "clear-day")!
-        let tempe = values.ds_decode(Double.self, forKey: .temperature)
-        temperature = String(format: "%.1f °C", tempe.toCelsius())
+        temperature = values.ds_decode(Double.self, forKey: .temperature)
         let humid = values.ds_decode(Double.self, forKey: .humidity)
         humidity = String(format: "%.1f %%", humid * 100)
     }

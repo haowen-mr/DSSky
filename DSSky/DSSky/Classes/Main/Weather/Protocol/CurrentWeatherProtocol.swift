@@ -11,6 +11,8 @@ import UIKit
 protocol CurrentWeatherProtocol {
     var locationModel: LocationModel { get }
     var weatherModel: WeatherModel { get }
+    var temperature: String { get }
+    var time: String { get }
 }
 
 

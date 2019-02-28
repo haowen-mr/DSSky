@@ -55,7 +55,7 @@
                                         </constraints>
                                         <state key="normal" image="Setting"/>
                                         <connections>
-                                            <action selector="settingsBtnClick" destination="Msd-i2-ywl" eventType="touchUpInside" id="UwC-9c-VmQ"/>
+                                            <segue destination="NnF-HX-Riv" kind="presentation" identifier="segueSettings" id="Jcf-pM-7JJ"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u8b-JI-WtN">
@@ -147,6 +147,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9P5-jY-R1g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="64.799999999999997" y="-41.829085457271368"/>
+        </scene>
+        <!--SettingsViewController-->
+        <scene sceneID="zRU-HE-MmI">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SettingsViewController" id="NnF-HX-Riv" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aTv-sD-8iQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="728" y="-292"/>
         </scene>
     </scenes>
     <resources>
