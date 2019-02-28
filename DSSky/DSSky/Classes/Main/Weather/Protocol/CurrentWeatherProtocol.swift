@@ -9,12 +9,8 @@
 import UIKit
 
 protocol CurrentWeatherProtocol {
-    var city: String { get }
-    var temperature: String { get }
-    var weatherIcon: UIImage { get }
-    var humidity: String { get }
-    var summary: String { get }
-    var date: String { get }
+    var locationModel: LocationModel { get }
+    var weatherModel: WeatherModel { get }
 }
 
 

@@ -27,34 +27,13 @@ struct CurrentWeatherViewModel: CurrentWeatherProtocol {
     var isUpdateReady: Bool {
         return isLocationReady && isWeatherReady
     }
-    
-    var city: String {
-        return location.name
-    }
-    
-    var temperature: String {
-        let value = weather.currently.temperature
         
-        return String(format: "%.1f °C", value.toCelsius())
+    var locationModel: LocationModel {
+        return location
     }
     
-    var weatherIcon: UIImage {
-        return UIImage(named: weather.currently.icon) ?? UIImage(named: "clear-day")!
-    }
-    
-    var humidity: String {
-        return String(
-            format: "%.1f %%",
-            weather.currently.humidity * 100)
-    }
-    
-    var summary: String {
-        return weather.currently.summary
-    }
-    
-    var date: String {
-        let formatter = DateFormatter()
-        return formatter.string(from: weather.currently.time)
+    var weatherModel: WeatherModel {
+        return weather
     }
     
 }
