@@ -114,11 +114,11 @@ class WeatherDataManagerTest: XCTestCase {
             latitude: 52,
             longitude: 100,
             currently: WeatherModel.CurrentWeatherModel(
-                time: Date(timeIntervalSince1970: 1507180335),
+                time: "1507180335",
                 summary: "Light Snow",
-                icon: "snow",
-                temperature: 23,
-                humidity: 0.91))
+                icon: UIImage(named: "snow")!,
+                temperature: "23",
+                humidity: "0.91"))
         
         XCTAssertEqual(model?.latitude, expected.latitude)
     }

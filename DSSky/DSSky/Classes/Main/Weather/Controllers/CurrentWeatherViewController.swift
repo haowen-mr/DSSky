@@ -54,10 +54,10 @@ private extension CurrentWeatherViewController {
     func updateView() {
         activityIndictorView.stopAnimating()
         
-        if let model = viewModel, model.isUpdateReady {
+        if let vm = viewModel, vm.isUpdateReady {
             weatherContainerView.isHidden = false
             
-            (weatherContainerView as! CurrentWeatherView).showData(model)
+            (weatherContainerView as! CurrentWeatherView).showData(vm)
         } else {
             loadingFailedLabel.isHidden = false
             loadingFailedLabel.text = "获取天气数据失败~"

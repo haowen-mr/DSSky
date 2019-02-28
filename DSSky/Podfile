@@ -6,7 +6,6 @@ target 'DSSky' do
   use_frameworks!
 
   # Pods for DSSky
-    pod 'Alamofire'
     pod 'Moya'
     pod 'SwiftyJSON'
     pod 'SnapKit'
@@ -21,6 +20,11 @@ target 'DSSky' do
   target 'DSSkyUITests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'Moya'
+    pod 'SwiftyJSON'
+    pod 'SnapKit'
+    pod 'MBProgressHUD'
+    
   end
 
 end

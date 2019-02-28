@@ -22,6 +22,7 @@
 		310305B5221FDA58002E37C1 /* DSPrivacyIsAuthorized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310305B4221FDA58002E37C1 /* DSPrivacyIsAuthorized.swift */; };
 		310305B8221FE10F002E37C1 /* CurrentWeatherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310305B7221FE10F002E37C1 /* CurrentWeatherProtocol.swift */; };
 		310305BA221FE27D002E37C1 /* CurrentWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310305B9221FE27D002E37C1 /* CurrentWeatherView.swift */; };
+		3134031F22278C3100619D10 /* CurrentWeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3134031E22278C3100619D10 /* CurrentWeatherUITests.swift */; };
 		314CDFAC2226780900663FC9 /* WeatherDataManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314CDFAB2226780900663FC9 /* WeatherDataManagerTest.swift */; };
 		314CDFAE22267CC200663FC9 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314CDFAD22267CC200663FC9 /* MockURLSession.swift */; };
 		314CDFB022267DF500663FC9 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314CDFAF22267DF500663FC9 /* MockURLSessionDataTask.swift */; };
@@ -36,7 +37,6 @@
 		31D4E21F221E93ED00586909 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31D4E21D221E93ED00586909 /* Main.storyboard */; };
 		31D4E221221E93EE00586909 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D4E220221E93EE00586909 /* Assets.xcassets */; };
 		31D4E224221E93EE00586909 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31D4E222221E93EE00586909 /* LaunchScreen.storyboard */; };
-		31D4E23A221E93EE00586909 /* DSSkyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4E239221E93EE00586909 /* DSSkyUITests.swift */; };
 		31D4E24C221E94B800586909 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4E24B221E94B800586909 /* Config.swift */; };
 		31D4E253221E965200586909 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4E252221E965200586909 /* Double+Extension.swift */; };
 		31D4E255221E969300586909 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4E254221E969300586909 /* UIImage+Extension.swift */; };
@@ -70,6 +70,18 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		313403202227940E00619D10 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		11349A14719BE1D8EB8043DA /* Pods_DSSkyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSSkyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		125A7C16E91985648B48DC19 /* Pods_DSSky.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSSky.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +100,7 @@
 		310305B4221FDA58002E37C1 /* DSPrivacyIsAuthorized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSPrivacyIsAuthorized.swift; sourceTree = "<group>"; };
 		310305B7221FE10F002E37C1 /* CurrentWeatherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherProtocol.swift; sourceTree = "<group>"; };
 		310305B9221FE27D002E37C1 /* CurrentWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherView.swift; sourceTree = "<group>"; };
+		3134031E22278C3100619D10 /* CurrentWeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherUITests.swift; sourceTree = "<group>"; };
 		314CDFAB2226780900663FC9 /* WeatherDataManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataManagerTest.swift; sourceTree = "<group>"; };
 		314CDFAD22267CC200663FC9 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		314CDFAF22267DF500663FC9 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
@@ -98,6 +111,7 @@
 		315583CC221EAC7800AC6F73 /* WeekWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekWeatherViewController.swift; sourceTree = "<group>"; };
 		315583D5221EB04E00AC6F73 /* CurrentWeatherViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CurrentWeatherViewController.storyboard; sourceTree = "<group>"; };
 		315583D7221EB17200AC6F73 /* WeekWeatherViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WeekWeatherViewController.storyboard; sourceTree = "<group>"; };
+		317A8FD12227AE6B00FA1145 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D4E216221E93ED00586909 /* DSSky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSSky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D4E219221E93ED00586909 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31D4E21E221E93ED00586909 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -107,7 +121,6 @@
 		31D4E22A221E93EE00586909 /* DSSkyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DSSkyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D4E230221E93EE00586909 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31D4E235221E93EE00586909 /* DSSkyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DSSkyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		31D4E239221E93EE00586909 /* DSSkyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSSkyUITests.swift; sourceTree = "<group>"; };
 		31D4E23B221E93EE00586909 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31D4E24B221E94B800586909 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		31D4E252221E965200586909 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
@@ -174,6 +187,7 @@
 		24F0A101A47B0017D1211811 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				317A8FD12227AE6B00FA1145 /* Alamofire.framework */,
 				125A7C16E91985648B48DC19 /* Pods_DSSky.framework */,
 				11349A14719BE1D8EB8043DA /* Pods_DSSkyTests.framework */,
 				E380889AF00D2BBB3488485A /* Pods_DSSkyUITests.framework */,
@@ -256,8 +270,8 @@
 		31D4E238221E93EE00586909 /* DSSkyUITests */ = {
 			isa = PBXGroup;
 			children = (
-				31D4E239221E93EE00586909 /* DSSkyUITests.swift */,
 				31D4E23B221E93EE00586909 /* Info.plist */,
+				3134031E22278C3100619D10 /* CurrentWeatherUITests.swift */,
 			);
 			path = DSSkyUITests;
 			sourceTree = "<group>";
@@ -385,6 +399,7 @@
 				31D4E213221E93ED00586909 /* Frameworks */,
 				31D4E214221E93ED00586909 /* Resources */,
 				92368D8F0FB8D485E32E2371 /* [CP] Embed Pods Frameworks */,
+				313403202227940E00619D10 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -422,6 +437,7 @@
 				31D4E231221E93EE00586909 /* Sources */,
 				31D4E232221E93EE00586909 /* Frameworks */,
 				31D4E233221E93EE00586909 /* Resources */,
+				291491F7A73663EACE21ADE8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -453,6 +469,7 @@
 					};
 					31D4E234221E93EE00586909 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 						TestTargetID = 31D4E215221E93ED00586909;
 					};
 				};
@@ -527,6 +544,38 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		291491F7A73663EACE21ADE8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DSSkyUITests/Pods-DSSkyUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DSSkyUITests/Pods-DSSkyUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		52B2CB614C46322DA94B06FF /* [CP] Check Pods Manifest.lock */ = {
@@ -661,7 +710,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31D4E23A221E93EE00586909 /* DSSkyUITests.swift in Sources */,
+				3134031F22278C3100619D10 /* CurrentWeatherUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -860,7 +909,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 489E9A37681853653788D24A /* Pods-DSSkyTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -884,7 +932,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 83DEAD9556A7D5F2433F3B96 /* Pods-DSSkyTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -907,7 +954,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3A0064C6A6B7555C0B13ADD2 /* Pods-DSSkyUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6CT8FYEK5B;
 				INFOPLIST_FILE = DSSkyUITests/Info.plist;
@@ -918,6 +965,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qtds8810.DSSkyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = DSSky;
@@ -928,7 +976,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6467E54FB52001AE7AFE1E57 /* Pods-DSSkyUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6CT8FYEK5B;
 				INFOPLIST_FILE = DSSkyUITests/Info.plist;

@@ -8,8 +8,7 @@
 
 import Foundation
 
+typealias DataTaskClosure = (Data?, URLResponse?, Error?) -> Void
 protocol NetURLSessionProtocol {
-    typealias DataTaskClosure = (Data?, URLResponse?, Error?) -> Void
-    
     func dataTask(with request: URLRequest, completionHandler: @escaping DataTaskClosure) -> NetURLSessionDataTaskProtocol
 }

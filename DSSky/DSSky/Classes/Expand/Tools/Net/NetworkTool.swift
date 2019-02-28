@@ -14,18 +14,19 @@ enum NetError: Error {
     case unknown
 }
 
+// MARK: - UI单元测试
 class NetURLSession: NetURLSessionProtocol {
     func dataTask(with request: URLRequest, completionHandler: @escaping DataTaskClosure) -> NetURLSessionDataTaskProtocol {
         return NetURLSessionDataTask(request: request, completion: completionHandler)
     }
     
 }
-
+// MARK: - UI单元测试
 class NetURLSessionDataTask: NetURLSessionDataTaskProtocol {
     private let request: URLRequest
-    private let completion: NetURLSessionProtocol.DataTaskClosure
+    private let completion: DataTaskClosure
     
-    init(request: URLRequest, completion: @escaping NetURLSessionProtocol.DataTaskClosure) {
+    init(request: URLRequest, completion: @escaping DataTaskClosure) {
         self.request = request
         self.completion = completion
     }
