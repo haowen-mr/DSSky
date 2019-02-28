@@ -76,4 +76,4 @@ iOSInjectionProject/
 
 # 自己添加
 .DS_Store
-.xcworkspace/
+*.xcworkspace/
