@@ -75,5 +75,9 @@ fastlane/test_output
 iOSInjectionProject/
 
 # 自己添加
+*~
 .DS_Store
-*.xcworkspace/
+*.xcuserstate
+*.xcworkspace
+# *.lock
+Pods
