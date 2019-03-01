@@ -90,30 +90,7 @@ class WeatherDataManagerTest: XCTestCase {
     func test_weatherDataAt_responseDecode() {
         session.responseHeader = HTTPURLResponse(url: API.baseURL, statusCode: 200, httpVersion: nil, headerFields: nil)
         
-        let data = """
-    {
-        "longitude" : 100,
-        "latitude" : 52,
-        "currently" : {
-            "temperature" : 23,
-            "humidity" : 0.91,
-            "icon" : "snow",
-            "time" : 1507180335,
-            "summary" : "Light Snow"
-        },
-        "daily": {
-            "data": [
-                {
-                    "time": 1507180335,
-                    "icon": "clear-day",
-                    "temperatureLow": 66,
-                    "temperatureHigh": 82,
-                    "humidity": 0.25
-                }
-            ]
-        }
-    }
-    """.data(using: .utf8)!
+        let data = loadDataFromBundle(ofName: "DarkSky", ext: "json")
         session.responseData = data
         
         var model: WeatherModel? = nil
@@ -133,10 +110,10 @@ class WeatherDataManagerTest: XCTestCase {
             latitude: 52,
             longitude: 100,
             currently: WeatherModel.CurrentWeatherModel(
-                time: "1507180335",
+                time: Date(timeIntervalSince1970: 1507180335),
                 summary: "Light Snow",
                 icon: UIImage(named: "snow")!,
-                temperature: "23",
+                temperature: 23,
                 humidity: "0.91"),
             daily: expectedWeekData)
         
