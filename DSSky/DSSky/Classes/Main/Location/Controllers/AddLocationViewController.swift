@@ -17,11 +17,10 @@ class AddLocationViewController: UITableViewController {
     // MARK: - Property
     // MARK: Public
     weak var delegate: AddLocationViewControllerDelegate?
+    var viewModel: AddLocationViewModel!
     
     // MARK: Private
     @IBOutlet weak var searchBar: UISearchBar!
-    private var locations: [LocationModel] = []
-    private lazy var geocoder = CLGeocoder()
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -37,15 +36,15 @@ class AddLocationViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return locations.count
+        return viewModel.numberOfLocations
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(LocationTableViewCell.self, for: indexPath)
         
-        let location = locations[indexPath.row]
-        let vm = LocationViewModel.init(location: location.location, locationText: location.name)
-        cell.showData(vm)
+        if let vm = viewModel.locationViewModel(at: indexPath.row) {
+            cell.showData(vm)
+        }
         
         return cell
     }
@@ -53,7 +52,7 @@ class AddLocationViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let location = locations[indexPath.row]
+        guard let location = viewModel.location(at: indexPath.row) else { return }
         delegate?.controller(self, didAddWith: location)
         navigationController?.popViewController(animated: true)
     }
@@ -65,51 +64,31 @@ class AddLocationViewController: UITableViewController {
 
 // MARK: - Private Method
 private extension AddLocationViewController {
-    func geocode(address: String?) {
-        guard let address = address else {
-            locations = []
-            tableView.reloadData()
-            
-            return
-        }
-        
-        geocoder.geocodeAddressString(address) { [weak self] (placemarks, error) in
-            DispatchQueue.main.async {
-                self?.processResponse(with: placemarks, error: error)
-            }
-        }
-    }
-    
-    func processResponse(with placemarks: [CLPlacemark]?, error: Error?) {
-        if let error = error {
-            print("Cannot handle Geocode Address! \(error)")
-        } else if let results = placemarks {
-            locations = results.compactMap { result -> LocationModel? in
-                guard let name = result.name else { return nil }
-                guard let location = result.location else { return nil }
-                
-                return LocationModel(name: name,
-                                     latitude: location.coordinate.latitude,
-                                     longitude: location.coordinate.longitude)
-            }
-            
-            tableView.reloadData()
-        }
-    }
-    
     func setupUI() {
+        self.title = "添加城市"
+        
+        viewModel = AddLocationViewModel()
+        viewModel.locationsDidChange = { [unowned self] locations in
+            self.tableView.reloadData()
+        }
+        viewModel.queryingStatusDidChange = { [unowned self] isQuery in
+            if isQuery {
+                self.title = "搜索中……"
+            } else {
+                self.title = "添加城市"
+            }
+        }
     }
 }
 
 extension AddLocationViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        geocode(address: searchBar.text)
+        viewModel.queryText = searchBar.text ?? ""
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        locations = []
-        tableView.reloadData()
+        viewModel.queryText = searchBar.text ?? ""
     }
 }
