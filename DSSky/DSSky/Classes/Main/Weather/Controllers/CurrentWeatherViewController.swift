@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import CoreLocation
 
 protocol CurrentWeatherViewControllerDelegate: class {
-    func locationClick(vc: CurrentWeatherViewController)
+    func locationClick(vc: CurrentWeatherViewController, didSelectWith location: CLLocation)
     func settingsClick(vc: CurrentWeatherViewController)
 }
 
@@ -38,12 +39,22 @@ class CurrentWeatherViewController: WeatherBaseViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else { return }
-        if identifier == "segueSettings" {
+        switch identifier {
+        case "segueSettings":
             guard let nav = segue.destination as? UINavigationController,
                 let destination = nav.topViewController as? SettingsViewController else {
                     fatalError("Invalid destination view controller!")
             }
             destination.delegate = self
+        case "sugueLocation":
+            guard let nav = segue.destination as? UINavigationController,
+                let destination = nav.topViewController as? LocationViewController else {
+                    fatalError("Invalid destination view controller!")
+            }
+            destination.delegate = self
+            destination.currentLocation = viewModel?.location.location
+        default:
+            break
         }
     }
     
@@ -62,9 +73,6 @@ class CurrentWeatherViewController: WeatherBaseViewController {
     }
     
     // MARK: - Action
-    @IBAction func locationBtnClick() {
-        delegate?.locationClick(vc: self)
-    }
         
 }
 
@@ -87,5 +95,12 @@ extension CurrentWeatherViewController: SettingsViewControllerDelagete {
     
     private func reloadUI() {
         delegate?.settingsClick(vc: self)
+    }
+}
+
+// MARK: - LocationViewControllerDelegate
+extension CurrentWeatherViewController: LocationViewControllerDelegate {
+    func controller(_ controller: LocationViewController, didSelectWith locaion: CLLocation) {
+        delegate?.locationClick(vc: self, didSelectWith: locaion)
     }
 }

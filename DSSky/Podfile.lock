@@ -3,6 +3,8 @@ PODS:
   - AMapFoundation-NO-IDFA (1.5.6)
   - AMapLocation-NO-IDFA (2.6.1):
     - AMapFoundation-NO-IDFA (~> 1.4)
+  - AMapSearch-NO-IDFA (6.6.0):
+    - AMapFoundation-NO-IDFA (~> 1.4)
   - MBProgressHUD (1.1.0)
   - Moya (12.0.1):
     - Moya/Core (= 12.0.1)
@@ -16,6 +18,7 @@ PODS:
 
 DEPENDENCIES:
   - AMapLocation-NO-IDFA
+  - AMapSearch-NO-IDFA
   - MBProgressHUD
   - Moya
   - SnapKit
@@ -27,6 +30,7 @@ SPEC REPOS:
     - Alamofire
     - AMapFoundation-NO-IDFA
     - AMapLocation-NO-IDFA
+    - AMapSearch-NO-IDFA
     - MBProgressHUD
     - Moya
     - Result
@@ -38,6 +42,7 @@ SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   AMapFoundation-NO-IDFA: 40d723b352992d0f95abe2976f0c0ecda3c3ffc3
   AMapLocation-NO-IDFA: ffd69b8b88f553d0b252d4967bf301ad2afff9c0
+  AMapSearch-NO-IDFA: 07651afae010f7acda12beb1f2c0f45d29069e75
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
@@ -45,6 +50,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   SwiftyUserDefaults: d26f8e8d8ef800e20642276ffa7566313e36c9a3
 
-PODFILE CHECKSUM: 075ba0ad0eb258d9fc6fcbf13e88ef7d1b54d167
+PODFILE CHECKSUM: 2b185aac6e5c3440e113283d0c79b8009f38acf3
 
 COCOAPODS: 1.6.0

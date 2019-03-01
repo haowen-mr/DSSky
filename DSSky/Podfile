@@ -12,6 +12,7 @@ targetArray.each do |t|
     pod 'SnapKit'
     pod 'MBProgressHUD'
     pod 'AMapLocation-NO-IDFA'
+    pod 'AMapSearch-NO-IDFA'
     pod 'SwiftyUserDefaults', '4.0.0-beta.1'
     
   end

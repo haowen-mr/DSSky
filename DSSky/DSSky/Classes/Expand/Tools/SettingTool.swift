@@ -40,4 +40,30 @@ class SettingTool {
     class func setTemperatureType(to value: TemperatureType) {
         Defaults[.temperatureType] = value.rawValue
     }
+    
+    // MARK: - Location
+    class func saveLocations(_ locations: [LocationModel]) {
+        let dicts: [[String: Any]] = locations.map { $0.toDict }
+        Defaults[.loactions] = dicts
+    }
+    
+    class func loadLocations() -> [LocationModel] {
+        let dicts = Defaults[.loactions]
+        return dicts.compactMap {
+            return LocationModel(from: $0)
+        }
+    }
+    
+    class func addLocation(_ location: LocationModel) {
+        var locations = loadLocations()
+        locations.append(location)
+        saveLocations(locations)
+    }
+    
+    class func removeLocation(at index: Int) {
+        var locations = loadLocations()
+        guard index < locations.count else { return }
+        locations.remove(at: index)
+        saveLocations(locations)
+    }
 }

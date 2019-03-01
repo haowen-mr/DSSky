@@ -13,4 +13,5 @@ extension DefaultsKeys {
     static let notiTime = DefaultsKey<Date>("notiTime", defaultValue: Date())
     static let dateType = DefaultsKey<Int>("dateType", defaultValue: 0)
     static let temperatureType = DefaultsKey<Int>("temperatureType", defaultValue: 0)
+    static let loactions = DefaultsKey<[[String: Any]]>("loactions", defaultValue: [])
 }

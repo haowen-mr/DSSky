@@ -38,7 +38,7 @@
                                         </constraints>
                                         <state key="normal" image="LocationBtn"/>
                                         <connections>
-                                            <action selector="locationBtnClick" destination="Msd-i2-ywl" eventType="touchUpInside" id="4ei-zS-5Rb"/>
+                                            <segue destination="eh5-pf-Brq" kind="presentation" identifier="sugueLocation" id="9h6-Lx-aDI"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上海市" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6d-Qs-7CM">
@@ -147,6 +147,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9P5-jY-R1g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="64.799999999999997" y="-41.829085457271368"/>
+        </scene>
+        <!--Location-->
+        <scene sceneID="YyV-RE-jIP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Location" id="eh5-pf-Brq" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uG3-iE-wW2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="699" y="32"/>
         </scene>
         <!--SettingsViewController-->
         <scene sceneID="zRU-HE-MmI">
