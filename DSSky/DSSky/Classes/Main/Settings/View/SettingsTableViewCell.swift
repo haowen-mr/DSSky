@@ -20,6 +20,12 @@ class SettingsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         setupUI()
     }
+    
+    // MARK: - Public Method
+    func showData(_ vm: SettingsProtocol) {
+        accessoryType = vm.accessory
+        label.text = vm.labelText
+    }
 }
 
 // MARK: - Private Method

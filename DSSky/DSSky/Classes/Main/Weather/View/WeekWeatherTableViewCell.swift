@@ -25,6 +25,13 @@ class WeekWeatherTableViewCell: UITableViewCell {
     
     
     // MARK: - Public Method
+    func showData(_ vm: WeekWeatherDayProtocol) {
+        weekLabel.text = vm.week
+        dateLabel.text = vm.date
+        temperatureLabel.text = vm.temperature
+        weatherIV.image = vm.weatherIcon
+        humidityLabel.text = vm.humidity
+    }
     
     // MARK: - Action
     

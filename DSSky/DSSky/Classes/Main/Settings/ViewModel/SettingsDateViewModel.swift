@@ -6,4 +6,21 @@
 //  Copyright © 2019 左得胜. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+struct SettingsDateViewModel: SettingsProtocol {
+    let dateType: DateType
+    
+    var labelText: String {
+        return dateType == .text ? "Fri, 01 December" : "F, 12/01"
+    }
+    
+    var accessory: UITableViewCell.AccessoryType {
+        if SettingTool.dateType() == dateType {
+            return .checkmark
+        } else {
+            return .none
+        }
+    }
+}
+

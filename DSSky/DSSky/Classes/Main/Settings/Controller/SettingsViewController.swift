@@ -55,28 +55,22 @@ class SettingsViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(SettingsTableViewCell.self, for: indexPath)
         guard let section = Section(rawValue: indexPath.section) else { fatalError(kTitle.guardError) }
         
+        var vm: SettingsProtocol?
+        
         switch section {
         case .date:
-            cell.label.text = (indexPath.row == 0) ?
-                "Fri, 01 December" : "F, 12/01"
-            let timeMode = SettingTool.dateType()
-            
-            if indexPath.row == timeMode.rawValue {
-                cell.accessoryType = .checkmark
+            guard let dateType = DateType(rawValue: indexPath.row) else {
+                fatalError(kTitle.guardError)
             }
-            else {
-                cell.accessoryType = .none
-            }
+            vm = SettingsDateViewModel.init(dateType: dateType)
         case .temperature:
-            cell.label.text = (indexPath.row == 0) ?
-                "Celcius" : "Fahrenheit"
-            let temperatureNotation = SettingTool.temperatureType()
-            
-            if indexPath.row == temperatureNotation.rawValue {
-                cell.accessoryType = .checkmark
-            } else {
-                cell.accessoryType = .none
+            guard let temperatureType = TemperatureType(rawValue: indexPath.row) else {
+                fatalError(kTitle.guardError)
             }
+            vm = SettingsTemperatureViewModel.init(temperatureType: temperatureType)
+        }
+        if let vm = vm {
+            cell.showData(vm)
         }
         
         return cell

@@ -7,3 +7,19 @@
 //
 
 import Foundation
+
+struct SettingsTemperatureViewModel: SettingsProtocol {
+    let temperatureType: TemperatureType
+    
+    var labelText: String {
+        return temperatureType == .celsius ? "Celsius" : "Fahrenhait"
+    }
+    
+    var accessory: UITableViewCell.AccessoryType {
+        if SettingTool.temperatureType() == temperatureType {
+            return .checkmark
+        } else {
+            return .none
+        }
+    }
+}
