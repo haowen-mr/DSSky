@@ -22,6 +22,7 @@
 		310305B5221FDA58002E37C1 /* DSPrivacyIsAuthorized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310305B4221FDA58002E37C1 /* DSPrivacyIsAuthorized.swift */; };
 		310305B8221FE10F002E37C1 /* CurrentWeatherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310305B7221FE10F002E37C1 /* CurrentWeatherProtocol.swift */; };
 		310305BA221FE27D002E37C1 /* CurrentWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310305B9221FE27D002E37C1 /* CurrentWeatherView.swift */; };
+		31149C62222A166D00CF39F4 /* CurrentLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31149C61222A166D00CF39F4 /* CurrentLocationViewModel.swift */; };
 		3131320D2227EC1D006104CD /* SettingsTemperatureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3131320C2227EC1D006104CD /* SettingsTemperatureViewModel.swift */; };
 		3134031F22278C3100619D10 /* CurrentWeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3134031E22278C3100619D10 /* CurrentWeatherUITests.swift */; };
 		314CDFAC2226780900663FC9 /* WeatherDataManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314CDFAB2226780900663FC9 /* WeatherDataManagerTest.swift */; };
@@ -71,6 +72,7 @@
 		31D4E265221EA06100586909 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4E264221EA06100586909 /* WeatherModel.swift */; };
 		31D4E267221EA0C300586909 /* ForecastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4E266221EA0C300586909 /* ForecastModel.swift */; };
 		31D4E26A221EA36A00586909 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D4E269221EA36A00586909 /* WeatherViewController.swift */; };
+		31FC7473222FA0E3000CA4FE /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FC7472222FA0E3000CA4FE /* Date+Extension.swift */; };
 		595432EBD6FB63A8A25C8FE4 /* Pods_DSSky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 125A7C16E91985648B48DC19 /* Pods_DSSky.framework */; };
 		C34BCAAA7EAC591996D743B6 /* Pods_DSSkyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E380889AF00D2BBB3488485A /* Pods_DSSkyUITests.framework */; };
 /* End PBXBuildFile section */
@@ -122,6 +124,7 @@
 		310305B4221FDA58002E37C1 /* DSPrivacyIsAuthorized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSPrivacyIsAuthorized.swift; sourceTree = "<group>"; };
 		310305B7221FE10F002E37C1 /* CurrentWeatherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherProtocol.swift; sourceTree = "<group>"; };
 		310305B9221FE27D002E37C1 /* CurrentWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherView.swift; sourceTree = "<group>"; };
+		31149C61222A166D00CF39F4 /* CurrentLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewModel.swift; sourceTree = "<group>"; };
 		3131320C2227EC1D006104CD /* SettingsTemperatureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTemperatureViewModel.swift; sourceTree = "<group>"; };
 		3134031E22278C3100619D10 /* CurrentWeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherUITests.swift; sourceTree = "<group>"; };
 		314CDFAB2226780900663FC9 /* WeatherDataManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataManagerTest.swift; sourceTree = "<group>"; };
@@ -178,6 +181,7 @@
 		31D4E264221EA06100586909 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		31D4E266221EA0C300586909 /* ForecastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastModel.swift; sourceTree = "<group>"; };
 		31D4E269221EA36A00586909 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		31FC7472222FA0E3000CA4FE /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		3A0064C6A6B7555C0B13ADD2 /* Pods-DSSkyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSSkyUITests.debug.xcconfig"; path = "Target Support Files/Pods-DSSkyUITests/Pods-DSSkyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		489E9A37681853653788D24A /* Pods-DSSkyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSSkyTests.debug.xcconfig"; path = "Target Support Files/Pods-DSSkyTests/Pods-DSSkyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6467E54FB52001AE7AFE1E57 /* Pods-DSSkyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSSkyUITests.release.xcconfig"; path = "Target Support Files/Pods-DSSkyUITests/Pods-DSSkyUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -252,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				3103059F221FA2D1002E37C1 /* CurrentWeatherViewModel.swift */,
+				31149C61222A166D00CF39F4 /* CurrentLocationViewModel.swift */,
 				317A8FD32227BB1700FA1145 /* WeekWeatherViewModel.swift */,
 				31961F4A2228C9A100843FB2 /* WeekWeatherDayViewModel.swift */,
 			);
@@ -505,6 +510,7 @@
 				310305B2221FD873002E37C1 /* UIFont+Extension.swift */,
 				314CDFB12226940300663FC9 /* KeyedDecodingContainer+Extension.swift */,
 				314CDFB22226940400663FC9 /* KeyedDecodingContainerProtocol+Decode.swift */,
+				31FC7472222FA0E3000CA4FE /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -733,6 +739,9 @@
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
@@ -745,6 +754,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
@@ -789,6 +801,9 @@
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
@@ -801,6 +816,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
@@ -823,6 +841,9 @@
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
@@ -835,6 +856,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
@@ -899,6 +923,7 @@
 				31D4E25C221E989200586909 /* NetURLSessionProtocol.swift in Sources */,
 				31961F5F2228D4F500843FB2 /* LocationTableViewCell.swift in Sources */,
 				31D4E260221E9F1C00586909 /* URLSession+Extension.swift in Sources */,
+				31FC7473222FA0E3000CA4FE /* Date+Extension.swift in Sources */,
 				319A562F2229203900BB1464 /* AddLocationViewModel.swift in Sources */,
 				31D4E255221E969300586909 /* UIImage+Extension.swift in Sources */,
 				3103059D221FA0A8002E37C1 /* UITableView+Extension.swift in Sources */,
@@ -920,6 +945,7 @@
 				317A8FD62227C12E00FA1145 /* Notifications.swift in Sources */,
 				31D4E265221EA06100586909 /* WeatherModel.swift in Sources */,
 				31D4E24C221E94B800586909 /* Config.swift in Sources */,
+				31149C62222A166D00CF39F4 /* CurrentLocationViewModel.swift in Sources */,
 				317A8FD42227BB1700FA1145 /* WeekWeatherViewModel.swift in Sources */,
 				31961F4D2228CAB800843FB2 /* WeekWeatherDayProtocol.swift in Sources */,
 			);

@@ -8,49 +8,33 @@
 
 import UIKit
 
-struct CurrentWeatherViewModel: CurrentWeatherProtocol {
+struct CurrentWeatherViewModel {
+    
     let formatter = DateFormatter()
+    var weatherModel: WeatherModel
     
-    var location: LocationModel! {
-        didSet {
-            isLocationReady = location != nil
-        }
+    static let empty = CurrentWeatherViewModel(weatherModel: WeatherModel.empty)
+    var isEmpty: Bool {
+        return weatherModel == WeatherModel.empty
     }
     
-    var weather: WeatherModel! {
-        didSet {
-            isWeatherReady = weather != nil
-        }
-    }
-    
-    var isLocationReady = false
-    var isWeatherReady = false
-    
-    var isUpdateReady: Bool {
-        return isLocationReady && isWeatherReady
-    }
-        
-    var locationModel: LocationModel {
-        return location
-    }
-    
-    var weatherModel: WeatherModel {
-        return weather
+    var isInvalid: Bool {
+        return weatherModel == WeatherModel.invalid
     }
     
     // MARK: - 由于设置改动后会更改温度和适度的格式，但是不会重新加载数据，因此，这里的不能将温度湿度写入 fatmodel 里面
     var temperature: String {
         switch SettingTool.temperatureType() {
         case .fahrenheit:
-            return String(format: "%.1f F", weather.currently.temperature)
+            return String(format: "%.1f F", weatherModel.currently.temperature)
         case .celsius:
-            return String(format: "%.1f °C", weather.currently.temperature.toCelsius())
+            return String(format: "%.1f °C", weatherModel.currently.temperature.toCelsius())
         }
     }
     
     var time: String {
         formatter.dateFormat = SettingTool.dateType().format
-        return formatter.string(from: weather.currently.time)
+        return formatter.string(from: weatherModel.currently.time)
     }
     
 }

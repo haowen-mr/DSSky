@@ -15,6 +15,7 @@ class WeatherBaseViewController: UIViewController {
     @IBOutlet weak var weatherContainerView: UIView!
     @IBOutlet weak var loadingFailedLabel: UILabel!
     @IBOutlet weak var activityIndictorView: UIActivityIndicatorView!
+    @IBOutlet weak var retryBtn: UIButton!
     
     // MARK: Private
     

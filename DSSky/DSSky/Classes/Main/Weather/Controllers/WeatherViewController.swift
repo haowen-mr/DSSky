@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import AMapSearchKit
+import RxSwift
 
 class WeatherViewController: UIViewController {
     // MARK: - Property
@@ -20,9 +21,8 @@ class WeatherViewController: UIViewController {
     // MARK: Private
     private var currentLocation: CLLocation? {
         didSet {
-            guard let currentLocation = currentLocation else { return }
-            fetchWeather(currentLocation)
-            fetchCity(currentLocation)
+            fetchWeather()
+            fetchCity()
         }
     }
     /// 懒加载搜索
@@ -31,6 +31,7 @@ class WeatherViewController: UIViewController {
         search.delegate = self
         return search
     }()
+    private let bag = DisposeBag()
         
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -52,7 +53,6 @@ class WeatherViewController: UIViewController {
             guard let destination = segue.destination as? CurrentWeatherViewController else {
                 fatalError("Invalid destination view controller!")
             }
-            destination.viewModel = CurrentWeatherViewModel()
             destination.delegate = self
             currentWeatherViewController = destination
         case "segueWeekWeather":
@@ -63,6 +63,40 @@ class WeatherViewController: UIViewController {
         default:
             break
         }
+    }
+    
+    // MARK: - Public Method
+    /// 获取天气数据
+    func fetchWeather() {
+        guard let location = currentLocation else { return }
+        let lat = location.coordinate.latitude
+        let lon = location.coordinate.longitude
+        
+        let weather = NetworkTool.shared.request(lat: lat, lon: lon)
+            //            .subscribe(onNext: { (weather) in
+            //            self.currentWeatherViewController.weatherVM.accept(CurrentWeatherViewModel(weatherModel: weather))
+            //            self.weekWeatherViewController.viewModel = WeekWeatherViewModel(weekWeatherModels: weather.daily.data)
+            //        })
+            //        .disposed(by: bag)
+            .share(replay: 1, scope: .whileConnected)
+            .observeOn(MainScheduler.instance)
+        
+        weather.map { CurrentWeatherViewModel(weatherModel: $0) }
+            .bind(to: currentWeatherViewController.weatherVM)
+            .disposed(by: bag)
+        
+        weather.map { WeekWeatherViewModel(weekWeatherModels: $0.daily.data) }
+            .subscribe(onNext: { self.weekWeatherViewController.viewModel = $0 })
+            .disposed(by: bag)
+    }
+    
+    func fetchCity() {
+        guard let location = currentLocation else { return }
+        
+        let request = AMapReGeocodeSearchRequest()
+        request.location = AMapGeoPoint.location(withLatitude: CGFloat(location.coordinate.latitude), longitude: CGFloat(location.coordinate.longitude))
+        
+        search.aMapReGoecodeSearch(request)
     }
     
     // MARK: - Action
@@ -78,30 +112,6 @@ class WeatherViewController: UIViewController {
 
 // MARK: - Private Method
 private extension WeatherViewController {
-    
-    /// 获取天气数据
-    func fetchWeather(_ location: CLLocation) {
-        let lat = location.coordinate.latitude
-        let lon = location.coordinate.longitude
-        NetworkTool.shared.request(lat: lat, lon: lon) { [weak self] (model, error) in
-            guard let `self` = self else { return }
-            if let error = error {
-                HUD.show(.text, message: error.localizedDescription)
-            }
-            else if let model = model {
-                self.currentWeatherViewController.viewModel?.weather = model
-                self.weekWeatherViewController.viewModel = WeekWeatherViewModel(weekWeatherModels: model.daily.data)
-            }
-        }
-    }
-    
-    func fetchCity(_ location: CLLocation) {
-        let request = AMapReGeocodeSearchRequest()
-        request.location = AMapGeoPoint.location(withLatitude: CGFloat(location.coordinate.latitude), longitude: CGFloat(location.coordinate.longitude))
-        
-        search.aMapReGoecodeSearch(request)
-    }
-    
     /// 通知设置
     func setupNoti() {
         kNotiCenter.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
@@ -113,6 +123,7 @@ private extension WeatherViewController {
             guard let `self` = self else { return }
             if let error = error {
                 HUD.show(.text, message: error.localizedDescription)
+                self.currentWeatherViewController.locationVM.accept(.invalid)
             } else if let location = location {
                 self.currentLocation = location
             }
@@ -121,7 +132,7 @@ private extension WeatherViewController {
     }
     
     func updateCurrent(with location: LocationModel) {
-        currentWeatherViewController.viewModel?.location = location
+        currentWeatherViewController.locationVM.accept(CurrentLocationViewModel(location: location))
     }
     
     func setupUI() {
@@ -142,6 +153,8 @@ extension WeatherViewController: AMapSearchDelegate {
 // MARK: - CurrentWeatherViewControllerDelegate
 extension WeatherViewController: CurrentWeatherViewControllerDelegate {
     func locationClick(vc: CurrentWeatherViewController, didSelectWith location: CLLocation) {
+        currentWeatherViewController.weatherVM.accept(.empty)
+        currentWeatherViewController.locationVM.accept(.empty)
         currentLocation = location
     }
     

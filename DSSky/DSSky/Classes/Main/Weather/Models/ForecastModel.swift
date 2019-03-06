@@ -15,3 +15,7 @@ struct ForecastModel: Codable {
     let icon: String
     let humidity: Double
 }
+
+extension ForecastModel: Equatable {
+    
+}

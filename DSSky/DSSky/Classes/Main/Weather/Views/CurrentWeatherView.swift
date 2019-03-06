@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class CurrentWeatherView: UIView {
     // MARK: - Property
@@ -17,7 +19,7 @@ class CurrentWeatherView: UIView {
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    
+    private let bag = DisposeBag()
     
     // MARK: Private
     
@@ -29,13 +31,20 @@ class CurrentWeatherView: UIView {
     }
     
     // MARK: - Publid Method
-    func showData(_ model: CurrentWeatherProtocol) {
-        locationLabel.text = model.locationModel.name
-        temperatureLabel.text = model.temperature
-        weatherIV.image = model.weatherModel.currently.icon
-        humidityLabel.text = model.weatherModel.currently.humidity
-        summaryLabel.text = model.weatherModel.currently.summary
-        dateLabel.text = model.time
+    func showData(_ vm: SharedSequence<DriverSharingStrategy, (CurrentLocationViewModel, CurrentWeatherViewModel)>) {
+        vm.map { $0.0.city }.drive(locationLabel.rx.text).disposed(by: bag)
+        vm.map { $0.1.temperature }.drive(temperatureLabel.rx.text).disposed(by: bag)
+        vm.map { $0.1.weatherModel.currently.icon }.drive(weatherIV.rx.image).disposed(by: bag)
+        vm.map { $0.1.weatherModel.currently.humidity }.drive(humidityLabel.rx.text).disposed(by: bag)
+        vm.map { $0.1.weatherModel.currently.summary }.drive(summaryLabel.rx.text).disposed(by: bag)
+        vm.map { $0.1.time }.drive(dateLabel.rx.text).disposed(by: bag)
+        
+//        locationLabel.text = model.location.city
+//        temperatureLabel.text = model.weather.temperature
+//        weatherIV.image = model.weather.weatherModel.currently.icon
+//        humidityLabel.text = model.weather.weatherModel.currently.humidity
+//        summaryLabel.text = model.weather.weatherModel.currently.summary
+//        dateLabel.text = model.weather.time
     }
     
     // MARK: - Action

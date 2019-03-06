@@ -20,6 +20,9 @@ struct LocationModel {
     let latitude: Double
     let longitude: Double
     
+    static let empty = LocationModel(name: "", latitude: 0, longitude: 0)
+    static let invalid = LocationModel(name: "n/a", latitude: 0, longitude: 0)
+    
     var location: CLLocation {
         return CLLocation(latitude: latitude, longitude: longitude)
     }
@@ -48,4 +51,8 @@ struct LocationModel {
         
         self.init(name: name, latitude: latitude, longitude: longitude)
     }
+}
+
+extension LocationModel: Equatable {
+    
 }

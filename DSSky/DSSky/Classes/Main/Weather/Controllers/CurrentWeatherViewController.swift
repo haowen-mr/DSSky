@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreLocation
+import RxSwift
+import RxCocoa
 
 protocol CurrentWeatherViewControllerDelegate: class {
     func locationClick(vc: CurrentWeatherViewController, didSelectWith location: CLLocation)
@@ -17,17 +19,13 @@ protocol CurrentWeatherViewControllerDelegate: class {
 class CurrentWeatherViewController: WeatherBaseViewController {
     // MARK: - Property
     // MARK: Public
-    var viewModel: CurrentWeatherViewModel? {
-        didSet {
-            DispatchQueue.main.async {
-                self.updateView()
-            }
-        }
-    }
+    var weatherVM: BehaviorRelay<CurrentWeatherViewModel> = BehaviorRelay(value: .empty)
+    var locationVM: BehaviorRelay<CurrentLocationViewModel> = BehaviorRelay(value: .empty)
     
     weak var delegate: CurrentWeatherViewControllerDelegate?
     
     // MARK: Private
+    private let bag = DisposeBag()
     
     
     // MARK: - LifeCycle
@@ -35,6 +33,46 @@ class CurrentWeatherViewController: WeatherBaseViewController {
         super.viewDidLoad()
         
         setupUI()
+        
+        let combined = Observable.combineLatest(locationVM, weatherVM, resultSelector: { ($0, $1) })
+        .share(replay: 1, scope: .whileConnected)
+        let viewModel = combined
+            .filter { self.shouldDisplayWeatherContainer(locationVM: $0.0, weatherVM: $0.1) }
+            .asDriver(onErrorJustReturn: (.empty, .empty))
+        
+        combined.map { self.shouldHideWeatherContainer(locationVM: $0.0
+            , weatherVM: $0.1) }
+        .asDriver(onErrorJustReturn: true)
+        .drive(weatherContainerView.rx.isHidden)
+        .disposed(by: bag)
+        
+        combined.map { self.shouldHideActivityIndicator(locationVM: $0.0, weatherVM: $0.1) }
+        .asDriver(onErrorJustReturn: true)
+        .drive(activityIndictorView.rx.isHidden)
+        .disposed(by: bag)
+        
+        combined.map { self.shouldAnimateActivityIndicator(locationVM: $0.0, weatherVM: $0.1) }
+            .asDriver(onErrorJustReturn: true)
+            .drive(activityIndictorView.rx.isAnimating)
+            .disposed(by: bag)
+        
+        let errorCond = combined.map { self.shouldDisplayErrorPrompt(locationVM: $0.0, weatherVM: $0.1) }
+        .asDriver(onErrorJustReturn: true)
+        
+        errorCond.map { !$0 }.drive(retryBtn.rx.isHidden).disposed(by: bag)
+        errorCond.map { !$0 }.drive(loadingFailedLabel.rx.isHidden).disposed(by: bag)
+        errorCond.map { _ in return "Opps! Load Location/Weather failed!" }.drive(loadingFailedLabel.rx.text).disposed(by: bag)
+        
+        retryBtn.rx.tap.subscribe(onNext: { _ in
+            self.weatherVM.accept(.empty)
+            self.locationVM.accept(.empty)
+            
+            (self.parent as? WeatherViewController)?.fetchCity()
+            (self.parent as? WeatherViewController)?.fetchWeather()
+        })
+        .disposed(by: bag)
+        
+        (self.weatherContainerView as! CurrentWeatherView).showData(viewModel)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -52,7 +90,7 @@ class CurrentWeatherViewController: WeatherBaseViewController {
                     fatalError("Invalid destination view controller!")
             }
             destination.delegate = self
-            destination.currentLocation = viewModel?.location.location
+            destination.currentLocation = locationVM.value.location.location
         default:
             break
         }
@@ -60,16 +98,8 @@ class CurrentWeatherViewController: WeatherBaseViewController {
     
     // MARK: - Public Method
     func updateView() {
-        activityIndictorView.stopAnimating()
-        
-        if let vm = viewModel, vm.isUpdateReady {
-            weatherContainerView.isHidden = false
-            
-            (weatherContainerView as! CurrentWeatherView).showData(vm)
-        } else {
-            loadingFailedLabel.isHidden = false
-            loadingFailedLabel.text = kTitle.loadError
-        }
+        weatherVM.accept(weatherVM.value)
+        locationVM.accept(locationVM.value)
     }
     
     // MARK: - Action
@@ -78,6 +108,34 @@ class CurrentWeatherViewController: WeatherBaseViewController {
 
 // MARK: - Private Method
 private extension CurrentWeatherViewController {
+    func shouldDisplayWeatherContainer(locationVM: CurrentLocationViewModel,
+                                       weatherVM: CurrentWeatherViewModel) -> Bool {
+        return !locationVM.isEmpty && !locationVM.isInvalid &&
+            !weatherVM.isEmpty && !weatherVM.isInvalid
+    }
+    
+    func shouldHideWeatherContainer(locationVM: CurrentLocationViewModel,
+                                    weatherVM: CurrentWeatherViewModel) -> Bool {
+        return locationVM.isEmpty || locationVM.isInvalid ||
+            weatherVM.isEmpty || weatherVM.isInvalid
+    }
+    
+    func shouldHideActivityIndicator(locationVM: CurrentLocationViewModel,
+                                     weatherVM: CurrentWeatherViewModel) -> Bool {
+        return (!locationVM.isEmpty && !weatherVM.isEmpty) ||
+            locationVM.isInvalid || weatherVM.isInvalid
+    }
+    
+    func shouldAnimateActivityIndicator(locationVM: CurrentLocationViewModel,
+                                        weatherVM: CurrentWeatherViewModel) -> Bool {
+        return locationVM.isEmpty || weatherVM.isEmpty
+    }
+    
+    func shouldDisplayErrorPrompt(locationVM: CurrentLocationViewModel,
+                                  weatherVM: CurrentWeatherViewModel) -> Bool {
+        return locationVM.isInvalid || weatherVM.isInvalid
+    }
+    
     func setupUI() {
         
     }
