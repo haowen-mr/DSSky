@@ -10,7 +10,8 @@ import XCTest
 @testable import DSSky
 
 class CurrentWeatherViewModelTests: XCTestCase {
-    var vm: CurrentWeatherViewModel!
+    var weatherVM: CurrentWeatherViewModel!
+    var locationVM: CurrentLocationViewModel!
     
     override func setUp() {
         super.setUp()
@@ -24,20 +25,18 @@ class CurrentWeatherViewModelTests: XCTestCase {
         decoder.dateDecodingStrategy = .secondsSince1970
         let weatherModel = try! decoder.decode(
             WeatherModel.self, from: data)
-        
-        // 3. Create the view model
-        vm = CurrentWeatherViewModel()
         let location = LocationModel(name: "Test City", latitude: 100, longitude: 100)
         
-        vm.weather = weatherModel
-        vm.location = location
+        // 3. Create the view model
+        weatherVM = CurrentWeatherViewModel(weatherModel: weatherModel)
+        locationVM = CurrentLocationViewModel(location: location)
     }
     
     func test_weather_summary() {
-        XCTAssertEqual(vm.weatherModel.currently.summary, "Light Snow")
+        XCTAssertEqual(weatherVM.weatherModel.currently.summary, "Light Snow")
     }
     
     func test_humidity_display() {
-        XCTAssertEqual(vm.weatherModel.currently.humidity, "91.0 %")
+        XCTAssertEqual(weatherVM.weatherModel.currently.humidity, "91.0 %")
     }
 }

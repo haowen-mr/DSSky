@@ -7,20 +7,22 @@
 //
 
 import XCTest
+import RxSwift
 @testable import DSSky
 
 class WeatherDataManagerTest: XCTestCase {
     let url = URL(string: "https://darksky.net")!
     var session: MockURLSession!
     var manager: NetworkTool!
-
+    private let bag = DisposeBag()
+    
     override func setUp() {
         super.setUp()
         
         self.session = MockURLSession()
         self.manager = NetworkTool(baseURL: url, urlSession: session)
     }
-
+    
     override func tearDown() {
         super.tearDown()
     }
@@ -28,21 +30,21 @@ class WeatherDataManagerTest: XCTestCase {
     func test_weatherDataAt_startsTheSession() {
         let dataTask = MockURLSessionDataTask()
         session.sessionDataTask = dataTask
-        
-        manager.request(lat: 52, lon: 100) { (_, _) in
+        manager.request(lat: 52, lon: 100).subscribe(onNext: { (_) in
             
-        }
+        })
+            .disposed(by: bag)
         XCTAssert(session.sessionDataTask.isResumeCalled)
     }
     
     func test_weatherDataAt_getsData() {
         let expect = expectation(description: "加载数据中……")
         var data: WeatherModel? = nil
-        
-        NetworkTool.shared.request(lat: 52, lon: 100) { (model, error) in
+        manager.request(lat: 52, lon: 100).subscribe(onNext: { (model) in
             data = model
             expect.fulfill()
-        }
+        })
+            .disposed(by: bag)
         
         waitForExpectations(timeout: 5, handler: nil)
         XCTAssertNotNil(data)
@@ -52,9 +54,12 @@ class WeatherDataManagerTest: XCTestCase {
         session.responseError = NSError(domain: "Invalid Request", code: 100, userInfo: nil)
         
         var error: NetError? = nil
-        manager.request(lat: 52, lon: 100) { (_, e) in
-            error = e
-        }
+        manager.request(lat: 52, lon: 100)
+            .subscribe(onNext: nil, onError: { (e) in
+                QL1(e)
+                error = e as? NetError
+            })
+            .disposed(by: bag)
         
         XCTAssertEqual(error, NetError.failedRequest)
     }
@@ -66,9 +71,12 @@ class WeatherDataManagerTest: XCTestCase {
         session.responseData = data
         
         var error: NetError? = nil
-        manager.request(lat: 52, lon: 100) { (_, e) in
-            error = e
-        }
+        manager.request(lat: 52, lon: 100)
+            .subscribe(onNext: nil, onError: { (e) in
+                QL1(e)
+                error = e as? NetError
+            })
+            .disposed(by: bag)
         
         XCTAssertEqual(error, NetError.failedRequest)
     }
@@ -80,9 +88,12 @@ class WeatherDataManagerTest: XCTestCase {
         session.responseData = data
         
         var error: NetError? = nil
-        manager.request(lat: 52, lon: 100) { (_, e) in
-            error = e
-        }
+        manager.request(lat: 52, lon: 100)
+            .subscribe(onNext: nil, onError: { (e) in
+                QL1(e)
+                error = e as? NetError
+            })
+            .disposed(by: bag)
         
         XCTAssertEqual(error, NetError.invalidResponse)
     }
@@ -94,9 +105,11 @@ class WeatherDataManagerTest: XCTestCase {
         session.responseData = data
         
         var model: WeatherModel? = nil
-        manager.request(lat: 52, lon: 100) { (m, _) in
-            model = m
-        }
+        manager.request(lat: 52, lon: 100)
+            .subscribe(onNext: { m in
+                model = m
+            }, onError: nil)
+            .disposed(by: bag)
         
         let expectedWeekData = WeatherModel.WeekWeatherModel(data: [
             ForecastModel(
@@ -119,5 +132,5 @@ class WeatherDataManagerTest: XCTestCase {
         
         XCTAssertEqual(model?.latitude, expected.latitude)
     }
-
+    
 }
